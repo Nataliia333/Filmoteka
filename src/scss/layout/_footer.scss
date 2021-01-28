@@ -1,51 +1,85 @@
-.footer {
+footer {
   background-color: #f7f7f7;
 }
 
-// .footer-basement {
-// }
+.footer-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 28px;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+}
 
-.footer-basement-text {
+.footer-basement {
+  display: flex;
+
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    width: 485px;
+  }
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    width: 485px;
+  }
+}
+
+.footer-basement-content {
+  display: flex;
+  box-sizing: content-box;
+  margin: 0px;
+}
+
+.footer-basement-content:first-child {
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
+  }
+  @media screen and (min-width: 1024px) {
+    margin-bottom: 0px;
+  }
+}
+
+.footer-basement-content-text {
   font-family: Roboto;
   font-style: Regular;
   font-size: 14px;
-  line-height: 14px;
-  //   line-height: 100%;
+  line-height: 16px;
+  line-height: 100%;
+
+  box-sizing: content-box;
+  flex-wrap: nowrap;
+  margin: 0px;
   color: #545454;
-  // Align: Left
-  // Vertical align: Center
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
-.footer-basement-text-link {
+.footer-text-link {
   text-decoration: underline;
 }
 
 .after-image::after {
   display: inline-block;
   content: '';
-  width: 24px;
-  height: 24px;
+  width: 14px;
+  height: 13px;
   margin-right: 10px;
   margin-left: 10px;
-  background-image: url('./images.footer-vector.svg');
+  background-image: url('../images/footer-vector.svg');
 }
-
-// .container {
-//   margin-left: auto;
-//   margin-right: auto;
-//   @media screen and (min-width: 320px) {
-//     width: 320px;
-//     padding-left: 20px;
-//     padding-right: 20px;
-//   }
-//   @media screen and (min-width: 768px) {
-//     width: 768px;
-//     padding-left: 75px;
-//     padding-right: 75px;
-//   }
-//   @media screen and (min-width: 1024px) {
-//     width: 1024px;
-//     padding-left: 71px;
-//     padding-right: 71px;
-//   }
-// }
