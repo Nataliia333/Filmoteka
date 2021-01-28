@@ -10,49 +10,55 @@
   </head>
 <body>
   <header>
-    <div class="wrapper-nav">
-      <nav class="main-nav">
-        <a href="./index.html" class="logo-nav">
-          <img src="./images/film-icon.svg" alt="logotype image" />
-          <span class="logo-text-nav">Filmoteka</span>
-        </a>
-        <ul class="header-list-nav">
-          <li><a href="./index.html" class="header-link-nav">Home</a></li>
-          <li><a href="./my-library.html" class="header-link-nav">My library</a></li>
-        </ul>
-      </nav>
-    </div>
-      <div class="wrapper-input">
-        <label class="input-label">
-          <input class="inputtext" placeholder=" " type="text" required>
-          <span class="text-search-films">Поиск фильма</span>
-          <span class="search-icon"></span>
-        </label>
-      </div>
-      <p class="error-sentence">Search result is not successful. Enter the correct movie name.</p>
   </header>
   <main></main>
   <footer>
-    <div class="footer-container">
-      <div class="footer-basement">
-        <div class="footer-basement-content">
-          <p class="footer-basement-content-text">
-            &copy; 2020 | All Rights Reserved | 
-          </p>
+  </footer>
+  <div class="backdrop">
+    <div class="modal-film">
+      <div class="modal-main">
+        <div class="modal-main-left">
+          <picture>
+            <source srcset="./images/Rectangle18.jpg 1x" media="(min-width: 991px)">
+            <source srcset="./images/Rectangle_tablet.jpg 1x" media="(min-width: 768px)">
+            <source srcset="./images/Rectangle_mobile.jpg" media="(min-width: 320px)">
+            <img src="./images/Rectangle_mobile.jpg" alt=""/>
+          </picture>
         </div>
-        <div class="footer-basement-content">
-          <p class="footer-basement-content-text">
-            <span class="footer-basement-content-text after-image">
-              &nbsp;Developed with
-            </span>
-            by
-            <span class="footer-basement-content-text footer-text-link">
-              GoIT Students
-            </span>
-          </p>
+        <div class="modal-main-right">
+          <h2>A FISTFUL OF LEAD</h2>
+          <ul class="modal-film-info">
+            <li>
+              <div>Vote / Votes</div>
+              <div><span class="modal-vote">7.3</span> <span>/</span> 1260</div>
+            </li>
+            <li>
+              <div>Popularity</div>
+              <div>100.2</div>
+            </li>
+            <li>
+              <div>Original Title</div>
+              <div>A FISTFUL OF LEAD</div>
+            </li>
+            <li>
+              <div>Genre</div>
+              <div>Western </div>
+            </li>
+          </ul>
+          <div class="title">About </div>
+          <div class="discription">
+            Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. 
+            But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they
+            happen across another gang of three – who themselves were planning to hit the very same bank! As tensions rise, 
+            things go from bad to worse as they realise the bags of gold are filled with lead... they’ve been double crossed – but by who and how?  
+          </div>
+          <div class="modal-btns">
+            <button class="modal-btns-left">add to Watched</button>
+            <button>add to queue</button>
+          </div>
         </div>
       </div>
     </div>
-  </footer>
+  </div> 
 </body>
 </html>
