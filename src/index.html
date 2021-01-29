@@ -12,8 +12,28 @@
     <title>Filmoteka-home</title>
   </head>
 <body>
-  <header>
-  </header>
+    <header>
+      <div class="wrapper-nav">
+        <nav class="main-nav">
+          <a href="./index.html" class="logo-nav">
+            <img src="./images/film-icon.svg" alt="logotype image" />
+            <span class="logo-text-nav">Filmoteka</span>
+          </a>
+          <ul class="header-list-nav">
+            <li><a href="./index.html" class="header-link-nav">Home</a></li>
+            <li><a href="./library.html" class="header-link-nav">My library</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wrapper-input">
+        <label class="input-label">
+          <input class="inputtext" placeholder=" " type="text" required>
+          <span class="text-search-films">Поиск фильма</span>
+          <span class="search-icon"></span>
+        </label>
+      </div>
+      <p class="error-sentence">Search result is not successful. Enter the correct movie name.</p>
+    </header>
    <main>
       <div class="container">
         <div class="main-section-wrapper">
@@ -22,8 +42,28 @@
       </div>
     </main>
   <footer>
+    <div class="footer-container">
+      <div class="footer-basement">
+        <div class="footer-basement-content">
+          <p class="footer-basement-content-text">
+            &copy; 2020 | All Rights Reserved |
+          </p>
+        </div>
+        <div class="footer-basement-content">
+          <p class="footer-basement-content-text">
+            <span class="footer-basement-content-text after-image">
+              &nbsp;Developed with
+            </span>
+            by
+            <span class="footer-basement-content-text footer-text-link">
+              GoIT Students
+            </span>
+          </p>
+        </div>
+        </div>
+        </div>
   </footer>
-  <div class="backdrop">
+  <!-- <div class="backdrop" hidden>
     <div class="modal-film">
       <div class="modal-main">
         <div class="modal-main-left">
@@ -68,6 +108,6 @@
         </div>
       </div>
     </div>
-  </div> 
+  </div>  -->
 </body>
 </html>
