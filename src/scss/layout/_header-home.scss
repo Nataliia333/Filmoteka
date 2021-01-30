@@ -1,9 +1,8 @@
-header {
+.header-home {
   height: 230px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 41px;
-  padding-bottom: 60px;
+  padding: 46px 0px 60px 0px;
 
   background-color: #000000;
   background-image: linear-gradient(
@@ -154,13 +153,13 @@ header {
   font-weight: 300;
 }
 
-.text-search-films:focus:required {
-  color: #ffffff;
-}
+// .text-search-films:focus:required {
+//   color: #ffffff;
+// }
 
 .input-label:focus-within > .text-search-films {
   transform: translateY(30px);
-  color: #ffffff;
+  color:  #ff6b08;
 }
 
 .search-icon {
