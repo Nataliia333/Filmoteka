@@ -37,4 +37,24 @@ function updateModalMarkup(data) {
 
 function onOpenModal() {
  refs.backdropRef.classList.add('is-open');
+  window.addEventListener('keydown', onPressESC);
+}
+
+refs.backdropRef.addEventListener('click', onBackdropClick);
+
+function onCloseModal() {
+  window.removeEventListener('keydown', onPressESC);
+  refs.backdropRef.classList.remove('is-open');
+  cleanModalContent();
+}
+function onBackdropClick(event) {
+  if (event.target === refs.backdropRef) onCloseModal();
+}
+
+function onPressESC(event) {
+  if (event.code === 'Escape') onCloseModal();
+}
+
+function cleanModalContent() {
+  refs.modalContentRef.innerHTML = '';
 }
