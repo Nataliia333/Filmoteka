@@ -5,6 +5,7 @@ import refs from "./refs"
 
 
 
+
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const page = '1';
 const baseUrl = 'https://api.themoviedb.org/3';
@@ -23,7 +24,7 @@ function updateGalleryMarkup(results) {
     let newGenres = [];
     item.genre_ids.map((id) => {
       const found = genres.find((item) => item.id === id);
-      console.log(found)
+
       newGenres.push(found.name);
     });
     if (newGenres.length >= 3) {
