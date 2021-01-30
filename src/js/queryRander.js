@@ -50,13 +50,11 @@ function updateGalleryMarkup(results) {
     refs.galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
 }
  
-// function showErrorSentence(results) {
-//     if (results.length === 0) {
-//         refs.errorRef.classList.add('is-shown')
-//         setTimeout(hideErrorSentence(), 5000);
-//     }
-// }
+function showErrorSentence(results) {
+    if (results.length === 0) {
+        refs.errorRef.classList.add('is-shown')
+    } else {
+         refs.errorRef.classList.remove('is-shown')
+    }
+}
 
-// function hideErrorSentence() {
-//     refs.errorRef.classList.remove('is-shown')
-// }
