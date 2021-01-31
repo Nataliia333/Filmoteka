@@ -1,6 +1,7 @@
 import modalTpl from "../templates/modal.hbs"
 import genres from "./genres";
 import refs from "./refs";
+import addToQueue from "./localStorage";
 
 // const movieId = "532865";
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -24,6 +25,8 @@ function movieDetailsHandler(event) {
         console.log(movieId)
         getMovieById(movieId);
         onOpenModal();
+        addToQueue.queue(movieId);
+    
     }
 }
 
@@ -32,8 +35,6 @@ function updateModalMarkup(data) {
      refs.modalContentRef.insertAdjacentHTML("beforeend", modalMarkup);
 
 }
-
-
 
 function onOpenModal() {
  refs.backdropRef.classList.add('is-open');
