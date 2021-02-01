@@ -1,38 +1,41 @@
 .card-top-img {
-    position: absolute;
+    margin-bottom: 10px;
     border-radius: 5px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-top-img:hover {
+    transform: scale(1.03);
+    cursor: pointer;
 }
 
-.card-body {
-    margin-top: 10px;
-}
-
-.card-title {
+.card-title,
+.card-genre,
+.vote-card {
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    color: #000000;
+    font-size: 12px;  
 }
 
-.card-text .card-title{
-    color: #FF6B08;
+
+.card-title {
+    line-height: 1.167;
+    text-transform: uppercase;
+    color: #000000;
+}
+.card-genre {
+    display: inline-block;
+    line-height: 1.33;
+    color: #ff6b08;
 }
 
 .vote-card {
-    margin-top: 26px;
-    margin-right: 10px;
     width: 36px;
     height: 16px;
     background: #FF6B01;
     border-radius: 5px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
+    margin-left: 10px;
+    display: inline-block;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
