@@ -1,6 +1,6 @@
 <div class="modal-main-left">
-  {{#if backdrop_path}}
-  <img src="https://image.tmdb.org/t/p/original{{backdrop_path}}" data-id={{id}} alt="{{title}}" />
+  {{#if poster_path}}
+  <img src="https://image.tmdb.org/t/p/original{{poster_path}}" data-id={{id}} alt="{{title}}" />
   {{else}}
   <img data-id={{id}} src="https://dummyimage.com/400x600/cfcfcf/ffffff&text=NO+IMAGE+AVAILABLE" alt="{{title}}" />
   {{/if}}

@@ -40,7 +40,7 @@
   }
 
   @media screen and (min-width: 1024px + 1px) {
-    background-size: contain;
+    background-size: cover;
   }
 }
 
@@ -159,7 +159,7 @@
 
 .input-label:focus-within > .text-search-films {
   transform: translateY(30px);
-  color:  #ff6b08;
+  color: #ff6b08;
 }
 
 .search-icon {
