@@ -138,12 +138,14 @@
     box-sizing: border-box;
     border-radius: 5px;
     display: block;
+    &:hover, &:focus{
+      background: #ff6b01;
+      color: #ffffff;
+      border-width: 0;
+      cursor: pointer;
+    }
   }
-
   .modal-btns-left {
-    background: #ff6b01;
-    color: #ffffff;
-    border-width: 0;
     margin-right: 15px;
   }
 }
