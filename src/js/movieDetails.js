@@ -1,6 +1,8 @@
 import modalTpl from "../templates/modal.hbs"
 import genres from "./genres";
 import refs from "./refs";
+import updateLibraryMarkup from "./myLibrary"
+
 
 // const movieId = "532865";
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -38,6 +40,13 @@ function updateModalMarkup(data) {
 function onOpenModal() {
  refs.backdropRef.classList.add('is-open');
   window.addEventListener('keydown', onPressESC);
+  refs.libModalBtn.addEventListener("click", myLibraryModalClickHandler);
+  
+}
+
+function myLibraryModalClickHandler() {
+  onCloseModal()
+   updateLibraryMarkup()
 }
 
 refs.backdropRef.addEventListener('click', onBackdropClick);
