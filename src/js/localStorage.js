@@ -6,9 +6,8 @@ queue (element){
 document.body.addEventListener( 'click', function ( event ) {
 if(event.toElement.className !== 'modal-btns-add-to-queue' ){
             return
-        }
-        else {
-    saveQueue(element);
+        } else {
+    saveToQueueList(element);
     }
      });
 },
@@ -17,15 +16,14 @@ if(event.toElement.className !== 'modal-btns-add-to-queue' ){
 document.body.addEventListener( 'click', function ( event ) {
    if(event.toElement.className !== 'modal-btns-left'){
               return
-          }
-          else {
+          }else {
       saveToWatchedList(element);
       }
       });
   },
 }
 
- function saveQueue(id){
+ function saveToQueueList(id){
 let newId = id;
 if (localStorage.getItem('queue') === null){
     localStorage.setItem('queue', '[]');
