@@ -2,6 +2,7 @@ import modalTpl from "../templates/modal.hbs"
 import genres from "./genres";
 import refs from "./refs";
 import addToQueue from "./localStorage";
+import addToWatched from "./localStorage";
 import updateLibraryMarkup from "./myLibrary"
 
 
@@ -29,6 +30,7 @@ function movieDetailsHandler(event) {
         getMovieById(movieId);
         onOpenModal();
         addToQueue.queue(movieId);
+        addToWatched.watched(movieId);
     
     }
 }
