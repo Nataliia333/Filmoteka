@@ -4,6 +4,7 @@ import "./js/queryRander";
 import "./js/movieDetails";
 import "./js/localStorage";
 import "./js/myLibrary";
+import "./js/watchListRander"
 
 
 

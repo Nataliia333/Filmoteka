@@ -47,5 +47,5 @@ const i = arr.indexOf(newId);
 if (i === -1) {
     arr.push(newId)
 }
-localStorage.setItem('watched', JSON.stringify(arr));
+    localStorage.setItem('watched', JSON.stringify(arr));
 } 

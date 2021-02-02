@@ -38,7 +38,7 @@ function updateGalleryMarkup(results) {
     }
     return item;
   });
-    const galleryMarkup = galleryTpl(results);
+  const galleryMarkup = galleryTpl(results);
     refs.galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
 }
  
