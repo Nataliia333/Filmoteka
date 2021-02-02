@@ -52,7 +52,7 @@ function updateGalleryMarkup(results) {
  
 function showErrorSentence(results) {
     if (results.length === 0) {
-        refs.errorRef.classList.add('is-shown')
+        refs.errorRef.classList.add('is-shown')        
     } else {
          refs.errorRef.classList.remove('is-shown')
     }
