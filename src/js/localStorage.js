@@ -47,5 +47,15 @@ const i = arr.indexOf(newId);
 if (i === -1) {
     arr.push(newId)
 }
-localStorage.setItem('watched', JSON.stringify(arr));
+    localStorage.setItem('watched', JSON.stringify(arr));
+     console.log(localStorage.getItem('watched'))
 } 
+
+
+// const items = JSON.parse(localStorage.getItem('watched'));
+// console.log(items)
+// get items except for the one(s) you want to remove
+// const newItems = items.filter(item => item !== '458220');
+// save back to localStorage
+// localStorage.setItem('watched', JSON.stringify(newItems));
+// console.log(newItems)
