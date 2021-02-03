@@ -28,28 +28,28 @@
         </nav>
       </div>
       <div class="header-library-btn-wrapper">
-        <div class="wrapper-input">
-          <form class="search-form" id="search-form" autocomplete="off">
-            <label class="input-label">
-              <input
-                class="inputtext"
-                name="query"
-                placeholder=" "
-                type="text"
-                required
-              />
-              <span class="text-search-films">Поиск фильма</span>
-              <span class="search-icon"></span>
-            </label>
-          </form>
-        </div>
-        <p class="error-sentence">
-          Search result is not successful. Enter the correct movie name.
-        </p>
+      <div class="wrapper-input">
+        <form class="search-form" id="search-form" autocomplete="off">
+          <label class="input-label">
+            <input class="inputtext" name="query" placeholder=" " type="text" required>
+            <span class="text-search-films">Поиск фильма</span>
+            <span class="search-icon"></span>
+          </label>
+        </form>
+        
+        
+      <p class="error-sentence">Search result is not successful. Enter the correct movie name.</p>
       </div>
     </header>
-    <main>
-      <div class="container">
+   <main>
+           <div class="container">
+
+        <!-- Spinner -->                
+          <div class="spinnerOn" id="spinnerOn">
+            <div class="is-hidden" id="spinner"></div>
+          </div>
+        <!-- Spinner End -->
+
         <ul class="main-section-wrapper">
           <!-- Здесь будут 20 шт <div class="main-section-card"></div> -->
         </ul>
