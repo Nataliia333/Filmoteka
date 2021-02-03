@@ -8,7 +8,8 @@
     myLibraryBtn: document.querySelector(".library"),
     headerRef: document.querySelector(".header-home"),
     libBtnContainer: document.querySelector(".header-library-btn-wrapper"),
-    libModalBtn:document.querySelector(".library-modal")
+    libModalBtn: document.querySelector(".library-modal"),
+    watchedButton: document.querySelector('.js-watched-button'),
 }
 
 export default refs;

@@ -1,17 +1,14 @@
 import modalTpl from "../templates/modal.hbs"
-import genres from "./genres";
 import refs from "./refs";
 import addToQueue from "./localStorage";
-import updateLibraryMarkup from "./myLibrary"
+import addToWatched from "./localStorage";
+import updateLibraryMarkup from "./myLibrary";
 
-
-
-// const movieId = "532865";
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
 
 function getMovieById(movieId){
-    fetch(`${baseUrl}/movie/${movieId}?api_key=${apiKey}`)
+    return fetch(`${baseUrl}/movie/${movieId}?api_key=${apiKey}`)
         .then(response => response.json())
         .then(data => updateModalMarkup(data))
         .catch(error => console.log(error));
@@ -20,22 +17,28 @@ function getMovieById(movieId){
 refs.galleryRef.addEventListener("click", movieDetailsHandler);
 
 function movieDetailsHandler(event) {
-    console.log(event.target.nodeName)
     if (event.target.nodeName !== "IMG") {
         return
     } else {
         const movieId = event.target.dataset.id;
-        console.log(movieId)
         getMovieById(movieId);
         onOpenModal();
         addToQueue.queue(movieId);
+        addToWatched.watched(movieId);
     
     }
 }
 
+function normalizeGenres(data) {
+  const newGenres = data.genres.slice(0, 2).map(({ name }) => name);
+  data.genres = newGenres.join(', ');
+  return  data.genres;
+}
+
 function updateModalMarkup(data) {
-    const modalMarkup = modalTpl(data);
-     refs.modalContentRef.insertAdjacentHTML("beforeend", modalMarkup);
+  normalizeGenres(data);
+  const modalMarkup = modalTpl(data);
+  refs.modalContentRef.insertAdjacentHTML("beforeend", modalMarkup);
 
 }
 

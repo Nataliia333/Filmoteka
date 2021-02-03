@@ -1,9 +1,11 @@
 <div class="modal-main-left">
-  {{#if poster_path}}
-  <img src="https://image.tmdb.org/t/p/original{{poster_path}}" data-id={{id}} alt="{{title}}" />
-  {{else}}
-  <img data-id={{id}} src="https://dummyimage.com/400x600/cfcfcf/ffffff&text=NO+IMAGE+AVAILABLE" alt="{{title}}" />
-  {{/if}}
+  <div class="thumbnail_film">
+    {{#if poster_path}}
+    <img src="https://image.tmdb.org/t/p/original{{poster_path}}" data-id={{id}} alt="{{title}}" />
+    {{else}}
+    <img data-id={{id}} src="https://dummyimage.com/400x600/cfcfcf/ffffff&text=NO+IMAGE+AVAILABLE" alt="{{title}}" />
+    {{/if}}
+  </div>
 </div>
 <div class="modal-main-right">
   <h2>{{title}}</h2>
@@ -22,7 +24,7 @@
     </li>
     <li>
       <div>Genre</div>
-      <div>{{genre_ids}}</div>
+      <div>{{genres}}</div>
     </li>
   </ul>
   <div class="title">About </div>
