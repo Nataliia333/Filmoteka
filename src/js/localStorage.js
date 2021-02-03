@@ -48,7 +48,10 @@ if (i === -1) {
     arr.push(newId)
 }
     localStorage.setItem('watched', JSON.stringify(arr));
+
+
      console.log(localStorage.getItem('watched'))
+
 } 
 
 

@@ -18,9 +18,9 @@ fetch(`${baseUrl}/trending/movie/day?&page=${page}&api_key=${apiKey}`)
 
 
 function updateGalleryMarkup(results) {
-   genreTransform(results, genres);
+genreTransform(results, genres);
     const galleryMarkup = galleryTpl(results);
-    refs.galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
+refs.galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
 }
  
 
