@@ -9,16 +9,17 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 
 const showWatchedMarkup = (e) => {
+    
     if (e.target.textContent !== 'Watched') {
         return
     }
     else if (localStorage.getItem('watched') === '[]' || localStorage.getItem('watched') === null) {
         refs.galleryRef.textContent = "Your watched list is empty!"
-        return
+       return
     }
-    refs.galleryRef.innerHTML = ''
-    const savedId = localStorage.getItem('watched')
-    const parsedId = JSON.parse(savedId)
+    refs.galleryRef.innerHTML = '';
+    const savedId = localStorage.getItem('watched');
+    const parsedId = JSON.parse(savedId);
     parsedId.forEach(el => {
         fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
             .then(response => response.json())
@@ -31,6 +32,8 @@ const showWatchedMarkup = (e) => {
 const updateWatchedMarkup = (results) => {
     const markup = watchedList({results})
     refs.galleryRef.insertAdjacentHTML('beforeend', markup)
+  
+    
 }
 
 const removeFromWatched = (e) => {
@@ -65,4 +68,6 @@ const removeFromWatched = (e) => {
 refs.libBtnContainer.addEventListener('click', showWatchedMarkup)
 
 refs.galleryRef.addEventListener('click', removeFromWatched)
-
+console.log(refs.galleryRef)
+// const watchedRemoveBtn = document.querySelector("#removeButton");
+// console.log(watchedRemoveBtn )

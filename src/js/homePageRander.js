@@ -24,4 +24,4 @@ refs.galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
 }
  
 
-// export default HomePageRander;
+export { updateGalleryMarkup };
