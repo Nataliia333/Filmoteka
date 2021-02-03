@@ -5,12 +5,9 @@ import "./js/movieDetails";
 import "./js/localStorage";
 import "./js/myLibrary";
 
-import "./js/spin";
-
-
-
 import "./js/watchListRander";
-import "./js/pagination"
+import "./js/pagination";
+import "./js/queueListRander"
 
 
 
