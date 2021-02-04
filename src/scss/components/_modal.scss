@@ -1,6 +1,6 @@
 .modal-film {
   position: relative;
-  width: 80%;
+  width: 1024px;
   height: 100%;
   overflow: auto;
   display: flex;
@@ -76,16 +76,16 @@
   }
 }
 .modal-main-left {
-  width: 426px;
   height: 100%;
-  overflow: hidden;
   margin-right: 30px;
   .thumbnail_film {
-    display: flex;
+    display: block;
     justify-content: center;
+    height: 100%;
     img {
       height: 100%;
       width: auto;
+      max-width: initial;
     }
   }
 }
@@ -168,13 +168,8 @@
     .modal-main-left {
       width: auto;
       height: 100%;
-      flex: 0 0 53%;
     }
-    .modal-main-right {
-      h2 {
-        font-size: 20px;
-      }
-    }
+    
   }
   
 }
@@ -205,6 +200,11 @@
       .thumbnail_film {
         height: 416px;
         width: 280px;
+      }
+    }
+    .modal-main-right {
+      h2 {
+        font-size: 20px;
       }
     }
   }
