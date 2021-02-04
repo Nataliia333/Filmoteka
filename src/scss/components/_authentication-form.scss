@@ -1,0 +1,49 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(169, 169, 169, 0.6);
+  z-index: 100;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.login-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+  }
+  input {
+    max-width: 70%;
+    height: 30px;
+  }
+}
+
+.login-btn-block {
+  justify-content: space-around;
+  button {
+    background: #ffffff;
+  }
+}
+
+// <div class="overlay is-open">
+//       <div class="login-block">
+//        <input type="text" id="email" placeholder="email" ></input>
+//        <input type="password" id="password" placeholder="password" ></input>
+//        <button class="sign-in-btn id="submit" >Sign in</button>
+//        <button class="create-btn">Sign up</button>
+//        <!-- <input type="submit" "></input> -->
+//        </div>
+//        </div >
