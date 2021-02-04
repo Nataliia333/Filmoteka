@@ -2,7 +2,7 @@ import modalTpl from "../templates/modal.hbs"
 import refs from "./refs";
 import addToQueue from "./localStorage";
 import addToWatched from "./localStorage";
-import updateLibraryMarkup from "./myLibrary";
+// import updateLibraryMarkup from "./myLibrary";
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';

@@ -1,6 +1,7 @@
 import refs from './refs'
 import queueList from '../templates/queue-list.hbs'
 import galleryTpl from "../templates/film-card-home.hbs"
+import {hidePaginationLibrary} from "./pagination"
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -9,6 +10,7 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 
 const showQueueMarkup = (e) => {
+      hidePaginationLibrary();
     if (e.target.textContent !== 'Queue') {
         return
     }

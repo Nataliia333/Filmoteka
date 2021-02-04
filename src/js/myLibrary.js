@@ -1,13 +1,33 @@
+import libraryGalleryTpl from "../templates/film-card-library.hbs"
+import genres from "./genres";
 import refs from "./refs"
+import { genreTransform } from "./genres"
+import { hidePaginationHome, showPaginationLibrary, startPaginate } from "./pagination";
+import { fetchTrands } from "./homePageRander";
+
+const apiKey = '030295876ec9637cb436e167c8c73741';
+const page = '1';
+const baseUrl = 'https://api.themoviedb.org/3';
 
 
 refs.myLibraryBtn.addEventListener("click", myLibraryClickHandler);
 
 function myLibraryClickHandler(event) {
-    updateLibraryMarkup()
+    showPaginationLibrary()
+    hidePaginationHome()
+    console.log(event)
+    updateLibraryHeaderMarkup()
+    refs.galleryRef.innerHTML = "";
+    fetchTrands(page).then(({ results, total_results }) => {
+    updateLibraryGalleryMarkup(results, genres);
+    startPaginate(total_results)
+       
+  });
+    
+
 }
 
-function updateLibraryMarkup() {
+function updateLibraryHeaderMarkup() {
     const markup = `
       <ul class="header-library-buttons">
           <li><button class="button-header-library">Watched</button></li> 
@@ -19,4 +39,16 @@ function updateLibraryMarkup() {
 
 }
 
-export default updateLibraryMarkup;
+function updateLibraryGalleryMarkup(results, genres) {
+  genreTransform(results, genres);
+    const libraryGalleryMarkup = libraryGalleryTpl(results);
+  refs.galleryRef.insertAdjacentHTML("beforeend", libraryGalleryMarkup);
+  window.scrollTo({
+            top: document.documentElement.offsetHeight,
+            behavior: "smooth",
+ });
+}
+
+
+
+export { updateLibraryGalleryMarkup };

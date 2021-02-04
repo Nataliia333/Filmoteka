@@ -10,7 +10,8 @@
     libBtnContainer: document.querySelector(".header-library-btn-wrapper"),
     libModalBtn: document.querySelector(".library-modal"),
     watchedButton: document.querySelector('.js-watched-button'),
-    pageContainer: document.querySelector('#tui-pagination-container')
+    pageContainerH: document.querySelector('.tui-pagination.home'),
+    pageContainerL: document.querySelector('.tui-pagination.library'),
 }
 
 export default refs;
