@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 import refs from "./refs";
 import { updateGalleryMarkup, homePageLoad, fetchTrands } from "./homePageRander";
 import genres from "./genres";
@@ -9,6 +9,7 @@ import {genreTransform} from "./genres"
 
 
 let targetPage = 1;
+
 
 
 function startPaginate(total_results) {
