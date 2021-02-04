@@ -1,37 +1,39 @@
 {{#each this}}
-<div class="modal-main-left">
-    {{#if poster_path}}
-    <img src="https://image.tmdb.org/t/p/original{{poster_path}}" data-id={{id}} alt="{{title}}" />
-    {{else}}
-    <img data-id={{id}} src="https://dummyimage.com/400x600/cfcfcf/ffffff&text=NO+IMAGE+AVAILABLE" alt="{{title}}" />
-    {{/if}}
-</div>
-<div class="modal-main-right">
-    <h2>{{title}}</h2>
-    <ul class="modal-film-info">
-        <li>
-            <div>Vote / Votes</div>
-            <div><span class="modal-vote">{{vote_average}}</span> <span>/</span> {{vote_count}}</div>
-        </li>
-        <li>
-            <div>Popularity</div>
-            <div>{{popularity}}</div>
-        </li>
-        <li>
-            <div>Original Title</div>
-            <div>{{original_title}}</div>
-        </li>
-        <li>
-            <div>Genre</div>
-            <div>{{genre_ids}}</div>
-        </li>
-    </ul>
-    <div class="title">About </div>
-    <div class="discription">
-        {{overview}}
+<li class="library-modal">
+    <div class="modal-main-left library-modal-image">
+        {{#if poster_path}}
+        <img src="https://image.tmdb.org/t/p/original{{poster_path}}" data-id={{id}} alt="{{title}}" />
+        {{else}}
+        <img data-id={{id}} src="https://dummyimage.com/400x600/cfcfcf/ffffff&text=NO+IMAGE+AVAILABLE"
+            alt="{{title}}" />
+        {{/if}}
     </div>
-    <div class="modal-btns">
-        <button id="removeButton" class="modal-btns-left" data-ref-id="{{id}}">Remove from Watched</button>
+    <div class="modal-main-right library-modal-discription">
+        <h2 class="library-modal-title">{{title}}</h2>
+        <ul class="modal-film-info library-modal-list">
+            <li>
+                <div>Vote / Votes</div>
+                <div><span class="modal-vote">{{vote_average}}</span> <span>/</span> {{vote_count}}</div>
+            </li>
+            <li>
+                <div>Popularity</div>
+                <div>{{popularity}}</div>
+            </li>
+            <li>
+                <div>Original Title</div>
+                <div>{{original_title}}</div>
+            </li>
+            <li>
+                <div>Genre</div>
+                <div>{{genre_ids}}</div>
+            </li>
+        </ul>
+        <div class="discription library-modal-discription-item">
+            {{overview}}
+        </div>
+        <div class="modal-btns library-modal-btns">
+            <button id="removeButton" class="modal-btns-left" data-ref-id="{{id}}">Remove</button>
+        </div>
     </div>
-</div>
+</li>
 {{/each}}
