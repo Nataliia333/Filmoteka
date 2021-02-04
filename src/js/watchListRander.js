@@ -14,8 +14,8 @@ const showWatchedMarkup = (e) => {
         return
     }
     else if (localStorage.getItem('watched') === '[]' || localStorage.getItem('watched') === null) {
-        refs.galleryRef.textContent = "Your watched list is empty!"
-       return
+        watchListEmpty()
+        return
     }
     refs.galleryRef.innerHTML = '';
     const savedId = localStorage.getItem('watched');
@@ -49,8 +49,7 @@ const removeFromWatched = (e) => {
 
 
     if (localStorage.getItem('watched') === '[]' || localStorage.getItem('watched') === null) {
-        
-        refs.galleryRef.textContent = "Your watched list is empty!"
+        watchListEmpty()
         return
     }
     refs.galleryRef.innerHTML = ''
@@ -71,3 +70,7 @@ refs.galleryRef.addEventListener('click', removeFromWatched)
 console.log(refs.galleryRef)
 // const watchedRemoveBtn = document.querySelector("#removeButton");
 // console.log(watchedRemoveBtn )
+function watchListEmpty() {
+    refs.galleryRef.textContent = "Your watched list is empty!"
+    refs.galleryRef.classList.add('empty-list')
+ }

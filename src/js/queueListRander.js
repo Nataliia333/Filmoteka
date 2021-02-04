@@ -13,7 +13,7 @@ const showQueueMarkup = (e) => {
         return
     }
     else if (localStorage.getItem('queue') === '[]' || localStorage.getItem('queue') === null) {
-        refs.galleryRef.textContent = "Your queue list is empty!"
+        queueListEmpty();
         return
     }
     refs.galleryRef.innerHTML = ''
@@ -46,8 +46,7 @@ const removeFromQueue = (e) => {
 
 
     if (localStorage.getItem('queue') === '[]' || localStorage.getItem('queue') === null) {
-        
-        refs.galleryRef.textContent = "Your queue list is empty!"
+        queueListEmpty();
         return
     }
     refs.galleryRef.innerHTML = ''
@@ -66,4 +65,7 @@ refs.libBtnContainer.addEventListener('click', showQueueMarkup)
 
 refs.galleryRef.addEventListener('click', removeFromQueue)
  
- 
+ function queueListEmpty() {
+    refs.galleryRef.textContent = "Your queue list is empty!"
+    refs.galleryRef.classList.add('empty-list')
+ }
