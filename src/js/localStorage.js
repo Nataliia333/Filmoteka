@@ -8,6 +8,8 @@ if(event.toElement.className !== 'modal-btns-add-to-queue' ){
             return
         } else {
     saveToQueueList(element);
+    event.toElement.innerHTML = 'added to queue';
+    // deleteToQueue(element);
     }
      });
 },
@@ -48,11 +50,17 @@ if (i === -1) {
     arr.push(newId)
 }
     localStorage.setItem('watched', JSON.stringify(arr));
-
-
-     console.log(localStorage.getItem('watched'))
+    console.log(localStorage.getItem('watched'))
 
 } 
+
+
+// function deleteToQueue(id) {
+//     const items = JSON.parse(localStorage.getItem('queue'));
+//     // console.log(items);
+//     const newItems = items.filter(item => item !== id);
+//     localStorage.setItem('queue', JSON.stringify(newItems));
+// }
 
 
 // const items = JSON.parse(localStorage.getItem('watched'));
