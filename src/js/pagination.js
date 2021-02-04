@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 import refs from "./refs";
 import { updateGalleryMarkup } from "./homePageRander"
 
@@ -13,7 +13,7 @@ const container = document.querySelector('#tui-pagination-container');
 var options = { // below default value of options
      totalItems: 20000,
      itemsPerPage: 20,
-     visiblePages: 8,
+     visiblePages: 5,
      page: 1,
      centerAlign: false,
      firstItemClassName: 'tui-first-child',
