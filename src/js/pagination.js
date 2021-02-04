@@ -11,7 +11,6 @@ import {genreTransform} from "./genres"
 let targetPage = 1;
 
 
-
 function startPaginate(total_results) {
     const options = {
         totalItems: `${total_results}`,
@@ -46,10 +45,10 @@ refs.pageContainer.addEventListener('click', paginationHandler);
 
 
 function paginationHandler(event) {
-    refs.galleryRef.innerHTML = '';
+  refs.galleryRef.innerHTML = '';
     const targetВtn = event.target;
-    
-  switch (targetВtn.className) {
+
+    switch (targetВtn.className) {
         case 'tui-page-btn':
             targetPage = Number(targetВtn.textContent);
                console.log(targetPage)
@@ -95,15 +94,15 @@ function paginationHandler(event) {
             targetPage = 1000;
             fetchTrands(targetPage).then(({ results}) => updateGalleryMarkup(results, genres));
            return;
-        case 'tui-page-btn tui-first-child':
+case 'tui-page-btn tui-first-child':
         targetPage = 1;
          fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
             return;
         case 'tui-page-btn tui-last-child':
         targetPage = 1000;
          fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-        return;
-        default:
+            return;
+     default:
          fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
         return;
     }
