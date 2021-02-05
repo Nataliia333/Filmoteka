@@ -23,14 +23,14 @@ img {
     font-size: 12px;
     line-height: 16px;
     text-transform: uppercase;
-    color: #fff;
+    color: $white-color;
     display: block;
     height: 44px;
     width: 130px;
     cursor: pointer;
     background-color: transparent;
     border-radius: 5px;
-    border: 1px solid #fff;
+    border: 1px solid $white-color;
 }
 
 
@@ -43,7 +43,7 @@ img {
 }
 
 .header-link-navigation {
-    color: #ffffff;
+    color: $white-color;
     position: relative;
     &:hover,
     &:focus {
@@ -61,7 +61,7 @@ img {
     }
   
     &:hover::after {
-      background-color: #ff6b08;
+      background-color: $orange-color;
       transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
       transform: scaleX(1);
     }
@@ -83,13 +83,13 @@ img {
     content: '';
     display: block;
     height: 4px;
-    background-color: #ff6b08;
+    background-color: $orange-color;
 }
 
 .button-header-library:hover,
 .button-header-library:focus {
-    background-color: #ff6b08;
-        border-color: #ff6b08;
+    background-color: $orange-color;
+        border-color: $orange-color;
 }
 
 

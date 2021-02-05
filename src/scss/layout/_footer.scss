@@ -1,5 +1,5 @@
 footer {
-  background-color: #f7f7f7;
+  background-color: $white-pagination;
 }
 
 .footer-container {
@@ -48,7 +48,7 @@ footer {
 }
 
 .footer-basement-content-text {
-  font-family: Roboto;
+  font-family: $main-font;
   font-style: Regular;
   font-size: 14px;
   line-height: 16px;
@@ -57,7 +57,7 @@ footer {
   box-sizing: content-box;
   flex-wrap: nowrap;
   margin: 0px;
-  color: #545454;
+  color: $footer-grey;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
