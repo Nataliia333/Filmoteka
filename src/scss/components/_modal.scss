@@ -89,7 +89,8 @@
     }
   }
 }
-.backdrop {
+.backdrop,
+.overlay {
   position: fixed;
   left: 0;
   top: 0;
@@ -106,7 +107,8 @@
   padding: 20px;
 }
 
-.backdrop.is-open {
+.backdrop.is-open,
+.overlay.is-open {
   opacity: 1;
   pointer-events: initial;
 }
@@ -146,8 +148,10 @@
     display: block;
     &:hover,
     &:focus {
-      background: $orange-color;
+
+   background: $orange-color;
       color: $white-color;
+
       border-width: 0;
       cursor: pointer;
     }
