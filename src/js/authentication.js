@@ -17,8 +17,10 @@ firebase.initializeApp(firebaseConfig);
 const newApp = new App();
 
 refs.registrationBtn.addEventListener('click', handleRegistrationBtn);
+
 function handleRegistrationBtn() {
   refs.overlay.classList.add('is-open');
+  window.addEventListener('keydown', onPressESC);
 }
 
 refs.email.addEventListener('change', () => newApp.handleChange(refs.email));
@@ -42,13 +44,31 @@ refs.submitBtn.addEventListener('click', () => {
 
 function foo() {
   refs.myLibraryBtn.style = 'pointer-events: auto';
+  refs.homeLink.style = 'pointer-events: auto';
   refs.overlay.classList.remove('is-open');
+  refs.registrationBtn.style = 'visibility: hidden;';
 }
 
 function addCreateNotification() {
-  refs.notification.textContent = 'Неверный пароль или адрес электронной почты';
+  refs.notification.textContent =
+    'Неверный пароль или адрес электронной почты, или пользователь уже существует';
 }
 
 function addNotification() {
   refs.notification.textContent = 'Неверный пароль или адрес электронной почты';
+}
+
+refs.overlay.addEventListener('click', onOverlayClick);
+
+function onCloseModal() {
+  window.removeEventListener('keydown', onPressESC);
+  refs.overlay.classList.remove('is-open');
+  // cleanModalContent();
+}
+function onOverlayClick(event) {
+  if (event.target === refs.overlay) onCloseModal();
+}
+
+function onPressESC(event) {
+  if (event.code === 'Escape') onCloseModal();
 }
