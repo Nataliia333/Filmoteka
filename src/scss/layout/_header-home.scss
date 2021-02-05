@@ -111,10 +111,17 @@
     margin-top: 4px;
     content: '';
     transform: scaleX(0);
+    background-color: #ff6b08;
   }
   &:hover::after {
     background-color: $orange-color;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scaleX(1);
+  }
+}
+
+.header-orange-style {
+  &::after {
     transform: scaleX(1);
   }
 }

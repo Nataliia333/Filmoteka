@@ -31,7 +31,9 @@
     cursor: pointer;
     background-color: transparent;
     border-radius: 5px;
+
     border: 1px solid $white-color;
+
 
 }
 
@@ -41,6 +43,7 @@
   align-items: center;
   margin-top: 49px;
 }
+
 
 .header-link-navigation {
     color: $white-color;
@@ -86,6 +89,7 @@
   transform: scaleX(0);
 }
 
+
 .library-active-page::after {
 
     content: '';
@@ -97,6 +101,8 @@
 
 .button-header-library:hover,
 .button-header-library:focus {
+
+
 
     background-color: $orange-color;
         border-color: $orange-color;
