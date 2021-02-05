@@ -11,6 +11,7 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 
 refs.myLibraryBtn.addEventListener("click", myLibraryClickHandler);
+refs.myLibraryBtnModal.addEventListener("click", myLibraryClickHandler, hideModal);
 
 function myLibraryClickHandler(event) {
     showPaginationLibrary()
@@ -20,11 +21,8 @@ function myLibraryClickHandler(event) {
     refs.galleryRef.innerHTML = "";
     fetchTrands(page).then(({ results, total_results }) => {
     updateLibraryGalleryMarkup(results, genres);
-    startPaginate(total_results)
-       
+    startPaginate(total_results)   
   });
-    
-
 }
 
 function updateLibraryHeaderMarkup() {
@@ -36,7 +34,9 @@ function updateLibraryHeaderMarkup() {
     refs.libBtnContainer.innerHTML = "";
     refs.libBtnContainer.insertAdjacentHTML('beforeend', markup);
     refs.headerRef.classList.add("header-library");
-
+    refs.headerBtn.classList.remove("header-orange-style");
+    refs.myLibraryBtn.classList.add("header-orange-style");
+    hideModal()
 }
 
 function updateLibraryGalleryMarkup(results, genres) {
@@ -49,6 +49,8 @@ function updateLibraryGalleryMarkup(results, genres) {
  });
 }
 
-
+function hideModal() {
+  refs.backdropRef.classList.remove('is-open');
+}
 
 export { updateLibraryGalleryMarkup };
