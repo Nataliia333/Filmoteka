@@ -1,4 +1,5 @@
 @import './base/base';
+@import './base/variables';
 @import './components/container';
 @import './components/modal';
 @import './layout/primary-section';
@@ -10,4 +11,10 @@
 @import './components/library-style';
 @import './components/spinner';
 @import './components/pagination';
+
 @import './components/authentication-form';
+
+@import './components/sprite';
+
+
+

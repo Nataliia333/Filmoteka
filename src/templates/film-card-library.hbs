@@ -1,13 +1,20 @@
 {{#each this}}
- <div class="main-section-card">
-    <img 
-    src="{{poster_path}}" 
-    class="card-top-img"
-    alt="{{title}}" 
-    />
-     <div class="card-body">
-         <h5 class="card-title">{{title}}</h5>
-         <p class="card-genre">{{genre_ids}}     |      {{release_date}} <span class="vote-card">{{vote_average}}</span></p>
-     </div>
- </div>
+<li class="main-section-card">
+    {{#if poster_path}}
+    <img class="card-top-img" src="https://image.tmdb.org/t/p/original{{poster_path}}" data-id={{id}} alt="{{title}}" />
+    {{else}}
+    <img data-id={{id}} class="movie-img" src="https://dummyimage.com/400x600/cfcfcf/ffffff&text=NO+IMAGE+AVAILABLE"
+        alt="{{title}}" />
+    {{/if}}
+    <div class="card-body">
+        <h3 class="card-title">{{title}}</h3>
+        {{#if genres}}
+        <p class="card-genre">{{genres}} | <span class="vote-card">{{vote_average}}</span></p>
+
+        {{else}}
+        <p class="card-genre">{{release_date}} <span class="vote-card">{{vote_average}}</span></p>
+        </p>
+        {{/if}}
+    </div>
+</li>
 {{/each}}

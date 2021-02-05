@@ -11,7 +11,7 @@
 .card-title,
 .card-genre,
 .vote-card {
-    font-family: Roboto;
+    font-family: $main-font;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;  
@@ -21,23 +21,25 @@
 .card-title {
     line-height: 1.167;
     text-transform: uppercase;
-    color: #000000;
+    color: $black-color;
 }
 .card-genre {
     display: inline-block;
     line-height: 1.33;
-    color: #ff6b08;
+    color: $orange-color;
 }
+
+
 
 .vote-card {
     width: 36px;
     height: 16px;
-    background: #FF6B01;
+    background: $orange-color;
     border-radius: 5px;
     margin-left: 10px;
     display: inline-block;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: $white-color;
 }

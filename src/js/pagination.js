@@ -1,9 +1,8 @@
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
 import refs from "./refs";
-import { updateGalleryMarkup, homePageLoad, fetchTrands } from "./homePageRander";
+import { updateGalleryMarkup, fetchTrands } from "./homePageRander";
 import genres from "./genres";
-import {genreTransform} from "./genres"
+
 
 
 
@@ -11,9 +10,9 @@ import {genreTransform} from "./genres"
 let targetPage = 1;
 
 
-function startPaginate(total_results) {
+function startPaginate(totalAmountOfFilms) {
     const options = {
-        totalItems: `${total_results}`,
+        totalItems: totalAmountOfFilms,
         itemsPerPage: 20,
         visiblePages: 8,
         page: 1,
@@ -37,14 +36,15 @@ function startPaginate(total_results) {
                 '</a>'
         }
     }
-    new Pagination(refs.pageContainer, options);
+    const home = new Pagination(refs.pageContainerH, options);
+    
     }
 
 
-refs.pageContainer.addEventListener('click', paginationHandler);
+refs.pageContainerH.addEventListener('click', homePaginationHandler);
 
 
-function paginationHandler(event) {
+function homePaginationHandler(event) {
   refs.galleryRef.innerHTML = '';
     const targetВtn = event.target;
 
@@ -62,7 +62,7 @@ function paginationHandler(event) {
          case 'tui-ico-prev':
             targetPage -=1
               console.log(targetPage)
-              fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
+             fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
             return;
         case 'tui-page-btn tui-next':
             targetPage += 1;
@@ -106,6 +106,24 @@ case 'tui-page-btn tui-first-child':
          fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
         return;
     }
-  }
+}
 
-export {startPaginate, paginationHandler}
+
+
+  
+function hidePaginationHome() {
+   refs.pageContainerH.classList.add("is-hidden") 
+}
+
+
+function showPaginationHome() {
+    refs.pageContainerH.classList.remove("is-hidden") 
+}
+
+
+
+export {
+    startPaginate,
+    hidePaginationHome,
+    showPaginationHome,
+  }

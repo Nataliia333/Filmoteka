@@ -1,16 +1,16 @@
 .modal-film {
   position: relative;
-  width: 80%;
+  width: 1024px;
   height: 100%;
   overflow: auto;
   display: flex;
-  background: #ffffff;
+  background: $white-color;
   flex-direction: column;
   box-sizing: border-box;
   .modal-main {
     display: flex;
     align-items: flex-start;
-    padding: 60px 71px 60px 71px;
+    padding: 60px 75px 60px 90px;
     height: calc(100% - 350px);
     min-height: 370px;
     box-sizing: content-box;
@@ -21,12 +21,12 @@
       margin-top: 0;
       margin-bottom: 20px;
       padding-bottom: 0;
-      font-family: 'Roboto';
+      font-family: $main-font;
       font-style: normal;
       font-weight: 500;
       font-size: 30px;
       line-height: 35px;
-      color: #000;
+      color: $black-color;
     }
   }
 }
@@ -41,51 +41,51 @@
     div {
       &:first-child {
         width: 70px;
-        font-family: 'Roboto';
+        font-family: $main-font;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
         line-height: 16px;
-        color: #8c8c8c;
+        color: $grey-color;
         margin-right: 83px;
       }
       &:last-child {
-        font-family: 'Roboto';
+        font-family: $main-font;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
         line-height: 16px;
         .modal-vote {
-          background: #ff6b01;
+          background: $orange-color;
           border-radius: 5px;
-          font-family: 'Roboto';
+          font-family: $main-font;
           font-style: normal;
           font-weight: 500;
           font-size: 12px;
           line-height: 14px;
           text-align: center;
           text-transform: uppercase;
-          color: #fff;
+          color: $white-color;
           padding: 1px 10px;
         }
         span {
-          color: #8c8c8c;
+          color: $grey-color;
         }
       }
     }
   }
 }
 .modal-main-left {
-  width: 426px;
   height: 100%;
-  overflow: hidden;
   margin-right: 30px;
   .thumbnail_film {
-    display: flex;
+    display: block;
     justify-content: center;
+    height: 100%;
     img {
       height: 100%;
-      width: auto;
+      width: 300px;
+      max-width: initial;
     }
   }
 }
@@ -115,11 +115,12 @@
 
 .discription,
 .title {
-  font-family: 'Roboto';
+  font-family: $main-font;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 20px;
+  max-width: 426px;
 }
 .title {
   padding-bottom: 10px;
@@ -129,7 +130,7 @@
   margin-top: 20px;
   display: flex;
   button {
-    font-family: 'Roboto';
+    font-family: $main-font;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -141,14 +142,16 @@
     height: 44px;
     border-radius: 5px;
     background: none;
-    border: 1px solid #000000;
+    border: 1px solid $black-color;
     box-sizing: border-box;
     border-radius: 5px;
     display: block;
     &:hover,
     &:focus {
-      background: #ff6b01;
-      color: #ffffff;
+
+   background: $orange-color;
+      color: $white-color;
+
       border-width: 0;
       cursor: pointer;
     }
@@ -171,12 +174,6 @@
     .modal-main-left {
       width: auto;
       height: 100%;
-      flex: 0 0 53%;
-    }
-    .modal-main-right {
-      h2 {
-        font-size: 20px;
-      }
     }
   }
 }
@@ -207,6 +204,11 @@
       .thumbnail_film {
         height: 416px;
         width: 280px;
+      }
+    }
+    .modal-main-right {
+      h2 {
+        font-size: 20px;
       }
     }
   }

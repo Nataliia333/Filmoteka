@@ -1,13 +1,21 @@
 import refs from "./refs"
+import { hidePaginationHome } from "./pagination";
+import {openWatchedPage} from "./watchListRander"
 
 
 refs.myLibraryBtn.addEventListener("click", myLibraryClickHandler);
+refs.myLibraryBtnModal.addEventListener("click", myLibraryClickHandler, hideModal);
 
 function myLibraryClickHandler(event) {
-    updateLibraryMarkup()
+    hidePaginationHome();
+    updateLibraryHeaderMarkup();
+    refs.galleryRef.innerHTML = "";
+
+    openWatchedPage();
+
 }
 
-function updateLibraryMarkup() {
+function updateLibraryHeaderMarkup() {
     const markup = `
       <ul class="header-library-buttons">
           <li><button class="button-header-library">Watched</button></li> 
@@ -16,7 +24,14 @@ function updateLibraryMarkup() {
     refs.libBtnContainer.innerHTML = "";
     refs.libBtnContainer.insertAdjacentHTML('beforeend', markup);
     refs.headerRef.classList.add("header-library");
-
+    refs.headerBtn.classList.remove("header-orange-style");
+    refs.myLibraryBtn.classList.add("header-orange-style");
+    hideModal()
 }
 
-export default updateLibraryMarkup;
+
+function hideModal() {
+  refs.backdropRef.classList.remove('is-open');
+}
+
+
