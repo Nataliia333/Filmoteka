@@ -2,7 +2,7 @@ import galleryTpl from "../templates/film-card-home.hbs"
 import genres from "./genres";
 import refs from "./refs"
 import { genreTransform } from "./genres"
-import { startPaginate, hidePaginationLibrary, showPaginationHome } from "./pagination";
+import { startPaginate} from "./pagination";
 
 
 
@@ -21,27 +21,24 @@ function updateGalleryMarkup(results, genres) {
   genreTransform(results, genres);
     const galleryMarkup = galleryTpl(results);
   refs.galleryRef.insertAdjacentHTML("beforeend", galleryMarkup);
-  window.scrollTo({
-            top: document.documentElement.offsetHeight,
-            behavior: "smooth",
- });
 }
  
 
 function homePageLoad(page) {
-  hidePaginationLibrary();
-  showPaginationHome();
+  // hidePaginationLibrary();
+  // showPaginationHome();
   // спиннер
   fetchTrands(page).then(({ results, total_results }) => {
     updateGalleryMarkup(results, genres);
     startPaginate(total_results);
-  
+   });
+}
     
        
-  });
-}
+ 
    
 
 homePageLoad(page);
 
 export { updateGalleryMarkup, homePageLoad, fetchTrands };
+export default homePageLoad;

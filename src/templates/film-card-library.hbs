@@ -8,8 +8,9 @@
     {{/if}}
     <div class="card-body">
         <h3 class="card-title">{{title}}</h3>
-        {{#if genre_ids}}
-        <p class="card-genre">{{genre_ids}} | {{release_date}} <span class="vote-card">{{vote_average}}</span></p>
+        {{#if genres}}
+        <p class="card-genre">{{genres}} | <span class="vote-card">{{vote_average}}</span></p>
+
         {{else}}
         <p class="card-genre">{{release_date}} <span class="vote-card">{{vote_average}}</span></p>
         </p>
