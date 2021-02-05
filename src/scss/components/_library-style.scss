@@ -32,9 +32,11 @@
 .library-modal-image {
   height: auto;
   width: auto;
+  margin-right: 0px;
 
   @media screen and (min-width: 768px) {
     width: 450px;
+    margin-right: 30px;
   }
   @media screen and (min-width: 1024px) {
     width: 250px;
@@ -49,7 +51,8 @@
   object-fit: contain;
 }
 
-.library-modal-discription {
+.library-modal-discript {
+  display: flex;
   box-sizing: content-box;
   flex-direction: column;
   justify-content: space-between;
@@ -68,14 +71,16 @@
 
 .library-modal-title {
   margin-bottom: 5px;
+  font-size: 20px;
+  line-height: 23px;
 }
 
 .library-modal-list {
   @media screen and (min-width: 1024px) {
-    margin-bottom: 0px;
-  }
-  & li div:first-child {
-    margin-right: auto;
+    margin-bottom: 3px;
+    & li div:first-child {
+      margin-right: 35px;
+    }
   }
 }
 
@@ -85,19 +90,22 @@
   }
 }
 
-.library-modal-discription-item {
+.library-modal-discript-item {
   flex-grow: 1;
 }
 
 .library-modal-btns {
+  box-sizing: content-box;
+  // max-height: auto;
   //   margin-top: 5px;
-  flex-grow: 2;
-  margin-top: auto;
+  // flex-grow: 2;
+  // margin-top: auto;
+  margin-top: 15px;
   //   margin-bottom: auto;
   justify-content: center;
 
   & > button {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
   }
 }
