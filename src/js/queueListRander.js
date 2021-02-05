@@ -1,6 +1,7 @@
 import refs from './refs'
 import queueList from '../templates/queue-list.hbs'
-import galleryTpl from "../templates/film-card-home.hbs"
+// import galleryTpl from "../templates/film-card-home.hbs"
+import {hidePaginationLibrary} from "./pagination"
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -9,6 +10,7 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 
 const showQueueMarkup = (e) => {
+      hidePaginationLibrary();
     if (e.target.textContent !== 'Queue') {
         return
     }
@@ -17,7 +19,7 @@ const showQueueMarkup = (e) => {
         return
     }
     refs.galleryRef.innerHTML = ''
-    const savedId = localStorage.getItem('queue')
+    const savedId = localStorage.getItem('queue');
     const parsedId = JSON.parse(savedId)
     parsedId.forEach(el => {
         fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
@@ -31,10 +33,11 @@ const showQueueMarkup = (e) => {
 const updateQueueMarkup = (results) => {
     const markup = queueList({results})
     refs.galleryRef.insertAdjacentHTML('beforeend', markup)
+    
 }
 
 const removeFromQueue = (e) => {
-    if (e.target.id !== 'removeButton') {
+    if (e.target.id !== 'removeButtonQueue') {
         return
     }
     const itemId = e.target.dataset.refId

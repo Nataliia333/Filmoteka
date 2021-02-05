@@ -1,6 +1,7 @@
 import refs from './refs'
 import watchedList from '../templates/watched-list.hbs'
-import galleryTpl from "../templates/film-card-home.hbs"
+// import galleryTpl from "../templates/film-card-home.hbs"
+import { hidePaginationLibrary } from './pagination';
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -9,7 +10,7 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 
 const showWatchedMarkup = (e) => {
-    
+      hidePaginationLibrary();
     if (e.target.textContent !== 'Watched') {
         return
     }
@@ -37,7 +38,7 @@ const updateWatchedMarkup = (results) => {
 }
 
 const removeFromWatched = (e) => {
-    if (e.target.id !== 'removeButton') {
+    if (e.target.id !== 'removeButtonWatched') {
         return
     }
     const itemId = e.target.dataset.refId

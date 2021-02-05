@@ -18,7 +18,7 @@
       <div class="wrapper-nav">
         <nav class="main-nav">
           <a href="./index.html" class="logo-nav">
-            <img src="./images/film-icon.svg" alt="logotype image" />
+            <svg class="icon icon-film-icon"><use xlink:href="./images/sprite.svg#icon-film-icon"></use></svg>
             <span class="logo-text-nav">Filmoteka</span>
           </a>
           <ul class="header-list-nav">
@@ -33,7 +33,8 @@
           <label class="input-label">
             <input class="inputtext" name="query" placeholder=" " type="text" required>
             <span class="text-search-films">Поиск фильма</span>
-            <span class="search-icon"></span>
+            <!-- <span class="search-icon"></span> -->
+            <svg class="icon icon-search-icon"><use xlink:href="./images/sprite.svg#icon-search-icon"></use></svg>
           </label>
         </form>
       </div>
@@ -51,7 +52,8 @@
         <ul class="main-section-wrapper">
           <!-- Здесь будут 20 шт <div class="main-section-card"></div> -->
         </ul>
-        <div id="tui-pagination-container" class="tui-pagination"></div>
+        <div id="tui-pagination-container" class="tui-pagination home"></div>
+        <div id="tui-pagination-container" class="tui-pagination library"></div>
       </div>
     </main>
     <footer>
@@ -64,9 +66,10 @@
           </div>
           <div class="footer-basement-content">
             <p class="footer-basement-content-text">
-              <span class="footer-basement-content-text after-image">
+              <span class="footer-basement-content-text">
                 &nbsp;Developed with
               </span>
+              <svg class="icon icon-footer-vector"><use xlink:href="./images/sprite.svg#icon-footer-vector"></use></svg>
               by
               <span class="footer-basement-content-text footer-text-link">
                 GoIT Students
@@ -82,7 +85,7 @@
           <div class="wrapper-nav">
             <nav class="main-nav">
               <a href="./index.html" class="logo-nav">
-                <img src="./images/film-icon.svg" alt="logotype image" />
+                <svg class="icon icon-film-icon"><use xlink:href="./images/sprite.svg#icon-film-icon"></use></svg>
                 <span class="logo-text-nav">Filmoteka</span>
               </a>
               <ul class="header-list-nav">
@@ -94,7 +97,7 @@
                 </li>
               </ul>
             </nav>
-            <ul class="header-modal-buttons">
+            <ul class="header-modal-buttons"> 
               <li>
                 <button class="button-header-modal">Watched</button>
               </li>
