@@ -2,7 +2,7 @@ import modalTpl from "../templates/modal.hbs"
 import refs from "./refs";
 import addToQueue from "./localStorage";
 import addToWatched from "./localStorage";
-import { updateLibraryGalleryMarkup } from "./myLibrary";
+
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
@@ -32,7 +32,11 @@ function movieDetailsHandler(event) {
 function normalizeGenres(data) {
   const newGenres = data.genres.slice(0, 2).map(({ name }) => name);
   data.genres = newGenres.join(', ');
-  return  data.genres;
+  
+}
+
+function cutRelease(data){
+ data.release_date.slice(0, 4);
 }
 
 function updateModalMarkup(data) {
@@ -54,7 +58,7 @@ function onOpenModal() {
 
 function myLibraryModalClickHandler() {
   onCloseModal()
-   updateLibraryGalleryMarkup()
+  //  updateLibraryGalleryMarkup()
 }
 
 refs.backdropRef.addEventListener('click', onBackdropClick);
@@ -75,3 +79,5 @@ function onPressESC(event) {
 function cleanModalContent() {
   refs.modalContentRef.innerHTML = '';
 }
+ 
+export {normalizeGenres, cutRelease}
