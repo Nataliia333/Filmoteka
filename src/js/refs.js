@@ -11,7 +11,9 @@
     libModalBtn: document.querySelector(".library-modal"),
     watchedButton: document.querySelector('.js-watched-button'),
     pageContainerH: document.querySelector('.tui-pagination.home'),
-    pageContainerL: document.querySelector('.tui-pagination.library'),
+    
 }
+
+
 
 export default refs;

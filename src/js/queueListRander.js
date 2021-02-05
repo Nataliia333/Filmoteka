@@ -1,7 +1,8 @@
 import refs from './refs'
-import queueList from '../templates/queue-list.hbs'
-// import galleryTpl from "../templates/film-card-home.hbs"
-import {hidePaginationLibrary} from "./pagination"
+import libraryTpl from '../templates/film-card-library.hbs'
+import { normalizeGenres, cutRelease } from "./movieDetails"
+
+
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -10,7 +11,7 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 
 const showQueueMarkup = (e) => {
-      hidePaginationLibrary();
+    //   hidePaginationLibrary();
     if (e.target.textContent !== 'Queue') {
         return
     }
@@ -31,8 +32,11 @@ const showQueueMarkup = (e) => {
 }
 
 const updateQueueMarkup = (results) => {
-    const markup = queueList({results})
+    cutRelease(results)
+    normalizeGenres(results);
+    const markup = libraryTpl({results})
     refs.galleryRef.insertAdjacentHTML('beforeend', markup)
+  
     
 }
 
