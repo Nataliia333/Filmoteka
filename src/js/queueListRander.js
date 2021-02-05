@@ -1,6 +1,6 @@
 import refs from './refs'
 import queueList from '../templates/queue-list.hbs'
-import galleryTpl from "../templates/film-card-home.hbs"
+// import galleryTpl from "../templates/film-card-home.hbs"
 import {hidePaginationLibrary} from "./pagination"
 
 
@@ -19,7 +19,7 @@ const showQueueMarkup = (e) => {
         return
     }
     refs.galleryRef.innerHTML = ''
-    const savedId = localStorage.getItem('queue')
+    const savedId = localStorage.getItem('queue');
     const parsedId = JSON.parse(savedId)
     parsedId.forEach(el => {
         fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
@@ -33,10 +33,11 @@ const showQueueMarkup = (e) => {
 const updateQueueMarkup = (results) => {
     const markup = queueList({results})
     refs.galleryRef.insertAdjacentHTML('beforeend', markup)
+    
 }
 
 const removeFromQueue = (e) => {
-    if (e.target.id !== 'removeButton') {
+    if (e.target.id !== 'removeButtonQueue') {
         return
     }
     const itemId = e.target.dataset.refId

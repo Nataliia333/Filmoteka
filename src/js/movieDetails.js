@@ -42,16 +42,19 @@ function updateModalMarkup(data) {
 
 }
 
+
+
 function onOpenModal() {
- refs.backdropRef.classList.add('is-open');
+  refs.backdropRef.classList.add('is-open');
   window.addEventListener('keydown', onPressESC);
   refs.libModalBtn.addEventListener("click", myLibraryModalClickHandler);
   
 }
 
+
 function myLibraryModalClickHandler() {
   onCloseModal()
-   updateLibraryMarkup()
+   updateLibraryGalleryMarkup()
 }
 
 refs.backdropRef.addEventListener('click', onBackdropClick);

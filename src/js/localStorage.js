@@ -10,6 +10,7 @@ if(event.toElement.className !== 'modal-btns-add-to-queue' ){
     saveToQueueList(element);
     event.toElement.innerHTML = 'added to queue';
     // deleteToQueue(element);
+    console.log(event.toElement)
     }
      });
 },
@@ -70,3 +71,26 @@ if (i === -1) {
 // save back to localStorage
 // localStorage.setItem('watched', JSON.stringify(newItems));
 // console.log(newItems)
+
+
+// function btnHandler() {
+  
+
+//   const watchedList = JSON.parse(localStorage.getItem("watched")) || [];
+//   const queueList = JSON.parse(localStorage.getItem("queue")) || [];
+
+//   const { id } = openedMovie.movie;
+//   if (watchedList.find((item) => item.id === id)) {
+//     btnWatched.classList.add("details__btn--in-the-list");
+//     btnWatched.textContent = `In watched list`;
+//   }
+
+//   if (queueList.find((item) => item.id === id)) {
+//     btnQueue.classList.add("details__btn--in-the-list");
+//     btnQueue.textContent = `In queue list`;
+//   }
+
+
+function checkFilmInQueue(id) {
+    
+}

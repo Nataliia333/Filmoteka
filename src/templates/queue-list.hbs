@@ -28,11 +28,11 @@
                 <div>{{genre_ids}}</div>
             </li>
         </ul>
-        <div class="discription library-modal-discription-item">
+        {{!-- <div class="discription library-modal-discription-item">
             {{overview}}
-        </div>
-        <div class="modal-btns library-modal-btns">
-            <button class="modal-btns-add-to-queue">Remove</button>
+        </div> --}}
+        <div class="library-modal-btns">
+            <button id="removeButtonQueue" data-ref-id="{{id}}">Remove</button>
         </div>
     </div>
 </li>
