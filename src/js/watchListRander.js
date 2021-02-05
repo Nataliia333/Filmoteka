@@ -1,7 +1,8 @@
 import refs from './refs'
-import watchedList from '../templates/watched-list.hbs'
-// import galleryTpl from "../templates/film-card-home.hbs"
-import { hidePaginationLibrary } from './pagination';
+import libraryTpl from '../templates/film-card-library.hbs'
+import { normalizeGenres, cutRelease } from "./movieDetails"
+
+
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -10,28 +11,16 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 
 const showWatchedMarkup = (e) => {
-      hidePaginationLibrary();
-    if (e.target.textContent !== 'Watched') {
+     if (e.target.textContent !== 'Watched') {
         return
     }
-    else if (localStorage.getItem('watched') === '[]' || localStorage.getItem('watched') === null) {
-        watchListEmpty()
-        return
-    }
-    refs.galleryRef.innerHTML = '';
-    const savedId = localStorage.getItem('watched');
-    const parsedId = JSON.parse(savedId);
-    parsedId.forEach(el => {
-        fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
-            .then(response => response.json())
-            .then(data => updateWatchedMarkup(data))
-            .catch(error => console.log(error));
-    });
-    
+   openWatchedPage()
 }
 
 const updateWatchedMarkup = (results) => {
-    const markup = watchedList({results})
+    cutRelease(results)
+    normalizeGenres(results);
+    const markup = libraryTpl({results})
     refs.galleryRef.insertAdjacentHTML('beforeend', markup)
   
     
@@ -74,4 +63,25 @@ console.log(refs.galleryRef)
 function watchListEmpty() {
     refs.galleryRef.textContent = "Your watched list is empty!"
     refs.galleryRef.classList.add('empty-list')
- }
+}
+ 
+
+function openWatchedPage() {
+    // refs.watchedButton.style.backgroundColor = "#ff6b08";
+    if (localStorage.getItem('watched') === '[]' || localStorage.getItem('watched') === null) {
+        watchListEmpty()
+        return
+    }
+    refs.galleryRef.innerHTML = '';
+    const savedId = localStorage.getItem('watched');
+    const parsedId = JSON.parse(savedId);
+    parsedId.forEach(el => {
+        fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => updateWatchedMarkup(data))
+        // .catch(error => console.log(error));
+    });
+}
+
+
+export { openWatchedPage }
