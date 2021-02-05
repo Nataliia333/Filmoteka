@@ -50,6 +50,7 @@ function updateHomeMarkup() {
   refs.libBtnContainer.innerHTML = '';
   refs.libBtnContainer.insertAdjacentHTML('beforeend', markup);
   refs.headerRef.classList.remove('header-library');
+  homePageLoad(page);
 }
 
 export { updateGalleryMarkup, homePageLoad, fetchTrands };
