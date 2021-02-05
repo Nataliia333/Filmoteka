@@ -1,49 +1,87 @@
-.overlay {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(169, 169, 169, 0.6);
-  z-index: 100;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.overlay.is-open {
-  opacity: 1;
-  pointer-events: initial;
-}
-
 .login-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  p {
-  }
+  width: 280px;
+  padding: 20px;
+  background: #ffffff;
   input {
-    max-width: 70%;
-    height: 30px;
+    width: 240px;
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 15px;
   }
+}
+
+.login-block-title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
 }
 
 .login-btn-block {
-  justify-content: space-around;
+  display: flex;
+  margin-bottom: 20px;
   button {
-    background: #ffffff;
+    width: 110px;
+    height: 44px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid #000000;
+    &:hover,
+    &:focus {
+      background: #ff6b01;
+      color: #ffffff;
+      border-width: 0;
+      cursor: pointer;
+    }
   }
 }
+.sign-in-btn {
+  margin-right: 20px;
+}
 
-// <div class="overlay is-open">
-//       <div class="login-block">
-//        <input type="text" id="email" placeholder="email" ></input>
-//        <input type="password" id="password" placeholder="password" ></input>
-//        <button class="sign-in-btn id="submit" >Sign in</button>
-//        <button class="create-btn">Sign up</button>
-//        <!-- <input type="submit" "></input> -->
-//        </div>
-//        </div >
+.notification {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  color: #8c8c8c;
+}
+
+@media screen and (min-width: 768px) {
+  .login-block {
+    width: 500px;
+    padding: 75px;
+    input {
+      width: 300px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .login-block-title {
+    font-size: 24px;
+    line-height: 35px;
+  }
+
+  .login-btn-block {
+    display: flex;
+    margin-bottom: 20px;
+    button {
+      width: 140px;
+    }
+  }
+
+  .notification {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}

@@ -89,7 +89,8 @@
     }
   }
 }
-.backdrop {
+.backdrop,
+.overlay {
   position: fixed;
   left: 0;
   top: 0;
@@ -106,7 +107,8 @@
   padding: 20px;
 }
 
-.backdrop.is-open {
+.backdrop.is-open,
+.overlay.is-open {
   opacity: 1;
   pointer-events: initial;
 }
@@ -143,7 +145,8 @@
     box-sizing: border-box;
     border-radius: 5px;
     display: block;
-    &:hover, &:focus{
+    &:hover,
+    &:focus {
       background: #ff6b01;
       color: #ffffff;
       border-width: 0;
@@ -157,7 +160,7 @@
 
 /*MODAL RESPONSIVE*/
 @media screen and (max-width: 991px) {
-  .modal-film{
+  .modal-film {
     width: 100%;
     .modal-main {
       padding: 60px 75px 60px 75px;
@@ -176,11 +179,10 @@
       }
     }
   }
-  
 }
 
 @media screen and (max-width: 767px) {
-  .backdrop{
+  .backdrop {
     padding: 0;
   }
   .modal-film {
