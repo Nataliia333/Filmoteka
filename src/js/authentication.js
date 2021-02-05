@@ -16,24 +16,24 @@ firebase.initializeApp(firebaseConfig);
 
 const newApp = new App();
 
-const submitRef = document.querySelector('.sign-in-btn');
-const createRef = document.querySelector('.create-btn');
-const emailRef = document.getElementById('email');
-const passwordRef = document.getElementById('password');
-const notificationRef = document.querySelector('.notification');
-const overlayRef = document.querySelector('.overlay');
+refs.registrationBtn.addEventListener('click', handleRegistrationBtn);
+function handleRegistrationBtn() {
+  refs.overlay.classList.add('is-open');
+}
 
-emailRef.addEventListener('change', () => newApp.handleChange(emailRef));
-passwordRef.addEventListener('change', () => newApp.handleChange(passwordRef));
+refs.email.addEventListener('change', () => newApp.handleChange(refs.email));
+refs.password.addEventListener('change', () =>
+  newApp.handleChange(refs.password),
+);
 
-createRef.addEventListener('click', () => {
+refs.createBtn.addEventListener('click', () => {
   newApp
     .createAccount()
     .then(res => foo())
     .catch(error => addCreateNotification());
 });
 
-submitRef.addEventListener('click', () => {
+refs.submitBtn.addEventListener('click', () => {
   newApp
     .signInAccount()
     .then(res => foo())
@@ -42,13 +42,13 @@ submitRef.addEventListener('click', () => {
 
 function foo() {
   refs.myLibraryBtn.style = 'pointer-events: auto';
-  overlayRef.classList.remove('is-open');
+  refs.overlay.classList.remove('is-open');
 }
 
 function addCreateNotification() {
-  notificationRef.textContent = 'Неверный пароль или адрес электронной почты';
+  refs.notification.textContent = 'Неверный пароль или адрес электронной почты';
 }
 
 function addNotification() {
-  notificationRef.textContent = 'Неверный пароль или адрес электронной почты';
+  refs.notification.textContent = 'Неверный пароль или адрес электронной почты';
 }
