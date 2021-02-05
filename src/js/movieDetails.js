@@ -1,5 +1,7 @@
 import modalTpl from "../templates/modal.hbs"
 import refs from "./refs";
+import { saveToWatchedList, saveToQueueList } from './localStorage';
+import { updateLibraryGalleryMarkup } from "./myLibrary";
 import addToQueue from "./localStorage";
 import addToWatched from "./localStorage";
 
@@ -18,15 +20,33 @@ refs.galleryRef.addEventListener("click", movieDetailsHandler);
 
 function movieDetailsHandler(event) {
     if (event.target.nodeName !== "IMG") {
-        return
-    } else {
+        return;
+    } 
         const movieId = event.target.dataset.id;
+        localStorage.setItem('movieId', movieId);
         getMovieById(movieId);
+        
         onOpenModal();
-        addToQueue.queue(movieId);
-        addToWatched.watched(movieId);
-    
-    }
+        document.addEventListener('click', (event) => {
+          switch (event.toElement.className) {
+            case 'modal-btns-left': {
+              const id = localStorage.getItem('movieId');
+              console.log('watched fired');
+              saveToWatchedList(id);
+              return;
+            }
+            case 'modal-btns-add-to-queue': {
+              const id = localStorage.getItem('movieId');
+              console.log('queue fired');
+              saveToQueueList(id);
+              return;
+            }
+            default: {
+              console.log('default');
+              return;
+            }
+          }
+        })
 }
 
 function normalizeGenres(data) {
