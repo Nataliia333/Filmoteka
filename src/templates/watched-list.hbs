@@ -8,31 +8,35 @@
             alt="{{title}}" />
         {{/if}}
     </div>
-    <div class="modal-main-right library-modal-discription">
-        <h2 class="library-modal-title">{{title}}</h2>
-        <ul class="modal-film-info library-modal-list">
-            <li>
-                <div>Vote / Votes</div>
-                <div><span class="modal-vote">{{vote_average}}</span> <span>/</span> {{vote_count}}</div>
-            </li>
-            <li>
-                <div>Popularity</div>
-                <div>{{popularity}}</div>
-            </li>
-            <li>
-                <div>Original Title</div>
-                <div>{{original_title}}</div>
-            </li>
-            <li>
-                <div>Genre</div>
-                <div>{{genre_ids}}</div>
-            </li>
-        </ul>
-        {{!-- <div class="discription library-modal-discription-item">
-            {{overview}}
-        </div> --}}
-        <div class="library-modal-btns">
+    <div class="modal-main-right library-modal-discript">
+        <div>
+            <h2 class="library-modal-title">{{title}}</h2>
+            <ul class="modal-film-info library-modal-list">
+                <li>
+                    <div>Vote / Votes</div>
+                    <div><span class="modal-vote">{{vote_average}}</span> <span>/</span> {{vote_count}}</div>
+                </li>
+                <li>
+                    <div>Popularity</div>
+                    <div>{{popularity}}</div>
+                </li>
+                <li>
+                    <div>Original Title</div>
+                    <div>{{original_title}}</div>
+                </li>
+                <li>
+                    <div>Genre</div>
+                    <div>{{genre_ids}}</div>
+                </li>
+            </ul>
+            <div class="discription library-modal-discript-item">
+                {{overview}}
+            </div>
+        </div>
+
+           <div class="library-modal-btns">
             <button id="removeButtonWatched" data-ref-id="{{id}}">Remove</button>
+
         </div>
     </div>
 </li>
