@@ -1,6 +1,6 @@
 import refs from './refs'
 import libraryTpl from '../templates/film-card-library.hbs'
-import { normalizeGenres, cutRelease } from "./movieDetails"
+import { normalizeGenres} from "./genres"
 
 
 
@@ -8,7 +8,8 @@ import { normalizeGenres, cutRelease } from "./movieDetails"
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
 
-
+refs.libBtnContainer.addEventListener('click', showWatchedMarkup)
+refs.galleryRef.addEventListener('click', removeFromWatched)
 
 const showWatchedMarkup = (e) => {
      if (e.target.textContent !== 'Watched') {
@@ -18,7 +19,6 @@ const showWatchedMarkup = (e) => {
 }
 
 const updateWatchedMarkup = (results) => {
-    cutRelease(results)
     normalizeGenres(results);
     const markup = libraryTpl({results})
     refs.galleryRef.insertAdjacentHTML('beforeend', markup)
@@ -54,12 +54,10 @@ const removeFromWatched = (e) => {
     }
     );
 }
-refs.libBtnContainer.addEventListener('click', showWatchedMarkup)
 
-refs.galleryRef.addEventListener('click', removeFromWatched)
-console.log(refs.galleryRef)
 // const watchedRemoveBtn = document.querySelector("#removeButton");
 // console.log(watchedRemoveBtn )
+
 function watchListEmpty() {
     refs.galleryRef.textContent = "Your watched list is empty!"
     refs.galleryRef.classList.add('empty-list')

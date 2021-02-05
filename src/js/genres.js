@@ -42,6 +42,12 @@ function genreTransform(data, genres) {
   });
 }
 
+function normalizeGenres(data) {
+  const newGenres = data.genres.slice(0, 2).map(({ name }) => name);
+  data.genres = newGenres.join(', ');
+  
+}
+
 
 export default genres;
-export { genreTransform };
+export { genreTransform, normalizeGenres };

@@ -44,9 +44,6 @@ function startPaginate(totalAmountOfFilms) {
 refs.pageContainerH.addEventListener('click', homePaginationHandler);
 
 
-
-
-
 function homePaginationHandler(event) {
   refs.galleryRef.innerHTML = '';
     const targetВtn = event.target;
@@ -127,6 +124,6 @@ function showPaginationHome() {
 
 export {
     startPaginate,
-hidePaginationHome,
+    hidePaginationHome,
     showPaginationHome,
   }

@@ -4,7 +4,6 @@ if (localStorage.getItem('queue') === null){
     localStorage.setItem('queue', '[]');
 }
 const arr = JSON.parse(localStorage.getItem('queue'));
-debugger;
 console.log('queue', arr);
 const i = arr.indexOf(newId);
 if (i !== -1) {

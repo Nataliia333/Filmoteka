@@ -1,6 +1,6 @@
 import refs from './refs'
 import libraryTpl from '../templates/film-card-library.hbs'
-import { normalizeGenres, cutRelease } from "./movieDetails"
+import { normalizeGenres} from "./genres"
 
 
 
@@ -32,7 +32,6 @@ const showQueueMarkup = (e) => {
 }
 
 const updateQueueMarkup = (results) => {
-    cutRelease(results)
     normalizeGenres(results);
     const markup = libraryTpl({results})
     refs.galleryRef.insertAdjacentHTML('beforeend', markup)

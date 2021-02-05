@@ -1,9 +1,9 @@
 import modalTpl from "../templates/modal.hbs"
 import refs from "./refs";
 import { saveToWatchedList, saveToQueueList } from './localStorage';
-import { updateLibraryGalleryMarkup } from "./myLibrary";
 import addToQueue from "./localStorage";
 import addToWatched from "./localStorage";
+import {normalizeGenres} from "./genres"
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -49,15 +49,7 @@ function movieDetailsHandler(event) {
         })
 }
 
-function normalizeGenres(data) {
-  const newGenres = data.genres.slice(0, 2).map(({ name }) => name);
-  data.genres = newGenres.join(', ');
-  
-}
 
-function cutRelease(data){
- data.release_date.slice(0, 4);
-}
 
 function updateModalMarkup(data) {
   normalizeGenres(data);
@@ -71,15 +63,14 @@ function updateModalMarkup(data) {
 function onOpenModal() {
   refs.backdropRef.classList.add('is-open');
   window.addEventListener('keydown', onPressESC);
-  refs.libModalBtn.addEventListener("click", myLibraryModalClickHandler);
   
 }
 
 
-function myLibraryModalClickHandler() {
-  onCloseModal()
-  //  updateLibraryGalleryMarkup()
-}
+// function myLibraryModalClickHandler() {
+//   onCloseModal()
+//   //  updateLibraryGalleryMarkup()
+// }
 
 refs.backdropRef.addEventListener('click', onBackdropClick);
 
@@ -88,6 +79,7 @@ function onCloseModal() {
   refs.backdropRef.classList.remove('is-open');
   cleanModalContent();
 }
+
 function onBackdropClick(event) {
   if (event.target === refs.backdropRef) onCloseModal();
 }
@@ -100,4 +92,3 @@ function cleanModalContent() {
   refs.modalContentRef.innerHTML = '';
 }
  
-export {normalizeGenres, cutRelease}

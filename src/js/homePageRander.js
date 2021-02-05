@@ -2,7 +2,8 @@ import galleryTpl from "../templates/film-card-home.hbs"
 import genres from "./genres";
 import refs from "./refs"
 import { genreTransform } from "./genres"
-import { startPaginate} from "./pagination";
+import { startPaginate } from "./pagination";
+import {startToSpin, stopToSpin} from "./spin"
 
 
 
@@ -25,13 +26,13 @@ function updateGalleryMarkup(results, genres) {
  
 
 function homePageLoad(page) {
-  // hidePaginationLibrary();
-  // showPaginationHome();
-  // спиннер
-  fetchTrands(page).then(({ results, total_results }) => {
+  // startToSpin();
+  fetchTrands(page)
+    .then(({ results, total_results }) => {
     updateGalleryMarkup(results, genres);
-    startPaginate(total_results);
-   });
+      startPaginate(total_results)
+    })
+  // .finally(stopToSpin());
 }
     
        

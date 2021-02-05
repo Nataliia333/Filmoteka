@@ -27,8 +27,15 @@ const target = document.getElementById('spinner');
 const spinner = new Spinner(opts).spin(target);
 
   
-  // ПОКАЗАТЬ спиннер
- // spinner.classList.remove('is-hidden');
-// СКРЫТЬ  спиннер 
-//spinner.classList.add('is-hidden');
 
+
+function startToSpin() {
+  spinner.classList.remove('is-hidden');
+};
+
+function stopToSpin() {
+  spinner.classList.add('is-hidden');
+};
+
+
+export {startToSpin, stopToSpin}
