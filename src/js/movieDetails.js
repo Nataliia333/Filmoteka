@@ -3,7 +3,8 @@ import refs from './refs';
 import { saveToWatchedList, saveToQueueList } from './localStorage';
 import { normalizeGenres } from './genres';
 import { updateHomeMarkup } from './homePageRander';
-import {myLibraryClickHandler} from './myLibrary'
+import { myLibraryClickHandler } from './myLibrary';
+import newApp from './authentication';
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
@@ -27,8 +28,7 @@ function movieDetailsHandler(event) {
 
   onOpenModal();
 
-   document.addEventListener('click', event => {       
-     console.log(event.toElement.className);
+  document.addEventListener('click', event => {
     switch (event.toElement.className) {
       case 'modal-btns-left': {
         const id = localStorage.getItem('movieId');
@@ -46,14 +46,18 @@ function movieDetailsHandler(event) {
         return;
       }
       case 'header-link-nav-modal modal-home-link': {
-        updateHomeMarkup();
-        onCloseModal();
+        if (newApp.state.hasAccount) {
+          updateHomeMarkup();
+          onCloseModal();
+        }
         break;
       }
       case 'header-link-nav-modal modal-library': {
-myLibraryClickHandler();
-onCloseModal();
-break;
+        if (newApp.state.hasAccount) {
+          myLibraryClickHandler();
+          onCloseModal();
+        }
+        break;
       }
       default: {
         console.log('default');
@@ -76,7 +80,6 @@ function updateModalMarkup(data) {
 function onOpenModal() {
   refs.backdropRef.classList.add('is-open');
   window.addEventListener('keydown', onPressESC);
-  
 }
 
 // function myLibraryModalClickHandler() {
@@ -103,7 +106,5 @@ function onPressESC(event) {
 function cleanModalContent() {
   refs.modalContentRef.innerHTML = '';
 }
-
-
 
 export { getMovieById };
