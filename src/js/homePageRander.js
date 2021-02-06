@@ -4,7 +4,9 @@ import refs from './refs';
 import { genreTransform } from './genres';
 import { startPaginate, showPaginationHome } from './pagination';
 import { startToSpin, stopToSpin } from './spin';
-import { queryHandler } from './queryRander';>>>>>>> main
+import { queryHandler } from './queryRander'
+
+
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -26,15 +28,15 @@ function updateGalleryMarkup(results, genres) {
 }
 
 function homePageLoad(page) {
-
-  startToSpin();
-  fetchTrands(page)
+startToSpin();
+fetchTrands(page)
     .then(({ results, total_results }) => {
-    updateGalleryMarkup(results, genres);
+      updateGalleryMarkup(results, genres);
 
-    startPaginate(total_results)
+      startPaginate(total_results);
     })
-    .finally(stopToSpin);
+
+    .finally(stopToSpin());
 
 }
 
@@ -79,5 +81,8 @@ function headerOrangeLineHome() {
   refs.myLibraryBtn.classList.remove("header-orange-style");
 }
 
-export { updateGalleryMarkup, homePageLoad, fetchTrands };
+
+
+export { updateGalleryMarkup, homePageLoad, fetchTrands, updateHomeMarkup };
+
 export default homePageLoad;

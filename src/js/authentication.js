@@ -38,7 +38,9 @@ function handleRegistrationBtn() {
   refs.submitBtn.addEventListener('click', () => {
     newApp
       .signInAccount()
-      .then(res => handleResponce())
+      .then(res => {
+        handleResponce();
+      })
       .catch(error => addNotification());
   });
 }
@@ -48,6 +50,9 @@ function handleResponce() {
   refs.homeLink.style = 'pointer-events: auto';
   refs.overlay.classList.remove('is-open');
   refs.registrationBtn.style = 'visibility: hidden;';
+  newApp.state.hasAccount = true;
+  // console.log(newApp.state.hasAccount);
+  // newApp.hasAccount = true;
 }
 
 function addCreateNotification() {
@@ -71,3 +76,5 @@ function onOverlayClick(event) {
 function onPressESC(event) {
   if (event.code === 'Escape') onCloseModal();
 }
+
+export default newApp;
