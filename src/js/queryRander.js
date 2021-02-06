@@ -1,48 +1,39 @@
-import genres from "./genres";
-import refs from "./refs"
-import {  hidePaginationHome} from "./pagination"
-import { updateGalleryMarkup } from "./homePageRander"
-
-
+import genres from './genres';
+import refs from './refs';
+import { hidePaginationHome } from './pagination';
+import { updateGalleryMarkup } from './homePageRander';
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const page = '1';
 const baseUrl = 'https://api.themoviedb.org/3';
 
 function movieQueryFetch(inputValue, page) {
-  return fetch(`${baseUrl}/search/movie?api_key=${apiKey}&query=${inputValue}&page=${page}`)
-        .then(response => response.json())
-    }
+  return fetch(
+    `${baseUrl}/search/movie?api_key=${apiKey}&query=${inputValue}&page=${page}`,
+  ).then(response => response.json());
+}
 
-refs.formRef.addEventListener("submit", queryHandler);
-
+refs.formRef.addEventListener('submit', queryHandler);
 
 function queryHandler(event) {
-  
   event.preventDefault();
   const form = event.currentTarget;
   const inputValue = form.elements.query.value;
-  refs.galleryRef.innerHTML = "";
+  refs.galleryRef.innerHTML = '';
   form.reset();
-  movieQueryFetch(inputValue)
-    .then(({ results, total_results}) => {
-      updateGalleryMarkup(results, genres)
-      showErrorSentence(results)
-     
-
-    })
-
+  movieQueryFetch(inputValue).then(({ results, total_results }) => {
+    updateGalleryMarkup(results, genres);
+    showErrorSentence(results);
+  });
 }
-
 
 function showErrorSentence(results) {
   if (results.length === 0) {
-     refs.errorRef.classList.add('is-shown')        
+    refs.errorRef.classList.add('is-shown');
   } else {
-  refs.errorRef.classList.remove('is-shown')
+    refs.errorRef.classList.remove('is-shown');
   }
-  hidePaginationHome()
-  
+  hidePaginationHome();
 }
 
-export {movieQueryFetch}
+export { movieQueryFetch, queryHandler };
