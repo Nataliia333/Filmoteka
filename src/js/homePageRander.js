@@ -4,7 +4,7 @@ import refs from './refs';
 import { genreTransform } from './genres';
 import { startPaginate, showPaginationHome } from './pagination';
 import { startToSpin, stopToSpin } from './spin';
-import { queryHandler } from './queryRander';>>>>>>> main
+import { queryHandler } from './queryRander'
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const page = '1';

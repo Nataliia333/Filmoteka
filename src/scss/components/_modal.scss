@@ -10,8 +10,8 @@
   .modal-main {
     display: flex;
     align-items: flex-start;
-    padding: 60px 75px 60px 90px;
-    height: calc(100% - 350px);
+    padding: 40px;
+    // height: calc(100% - 350px);
     min-height: 370px;
     box-sizing: content-box;
   }
@@ -84,8 +84,8 @@
     height: 100%;
     img {
       height: 100%;
-      width: 300px;
-      max-width: initial;
+      // width: 300px;
+      // max-width: initial;
     }
   }
 }
@@ -148,8 +148,7 @@
     display: block;
     &:hover,
     &:focus {
-
-   background: $orange-color;
+      background: $orange-color;
       color: $white-color;
 
       border-width: 0;
@@ -165,6 +164,7 @@
 @media screen and (max-width: 991px) {
   .modal-film {
     width: 100%;
+    height: auto;
     .modal-main {
       padding: 60px 75px 60px 75px;
       flex-direction: row;
@@ -172,8 +172,9 @@
       align-items: flex-start;
     }
     .modal-main-left {
-      width: auto;
-      height: 100%;
+      .thumbnail_film img {
+        height: auto;
+      }
     }
   }
 }
