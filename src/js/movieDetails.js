@@ -1,8 +1,6 @@
 import modalTpl from "../templates/modal.hbs"
 import refs from "./refs";
 import { saveToWatchedList, saveToQueueList } from './localStorage';
-import addToQueue from "./localStorage";
-import addToWatched from "./localStorage";
 import {normalizeGenres} from "./genres"
 
 
@@ -40,7 +38,7 @@ function movieDetailsHandler(event) {
               const id = localStorage.getItem('movieId');
               console.log('queue fired');
               saveToQueueList(id);
-              event.target.innerHTML = 'Remove from "QUEUE"';
+              event.toElement.innerHTML = 'Remove from "QUEUE"';
               // event.toElement.innerHTML = 'added to watched';
               return;
             }
@@ -52,9 +50,9 @@ function movieDetailsHandler(event) {
         })
 }
 
-function checkList() {
-222222
-}
+// function checkList() {
+// 222222
+// }
 
 function updateModalMarkup(data) {
   normalizeGenres(data);

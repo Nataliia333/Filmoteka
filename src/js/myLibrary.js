@@ -18,7 +18,7 @@ function myLibraryClickHandler(event) {
 function updateLibraryHeaderMarkup() {
     const markup = `
       <ul class="header-library-buttons">
-          <li><button class="button-header-library">Watched</button></li> 
+          <li><button class="button-header-library watched">Watched</button></li> 
           <li><button class="button-header-library">Queue</button></li>
       </ul>`;
     refs.libBtnContainer.innerHTML = "";
