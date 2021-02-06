@@ -38,6 +38,13 @@ homePageLoad(page);
 refs.homeLink.addEventListener('click', updateHomeMarkup);
 
 function updateHomeMarkup() {
+  updateHomeHeaderMarkup();
+  updateHomeMainMarkup();
+  const searchForm = document.querySelector('.search-form');
+  searchForm.addEventListener('submit', queryHandler);
+}
+
+function updateHomeHeaderMarkup() {
   const markup = `
       <div class="wrapper-input">
         <form class="search-form" id="search-form" autocomplete="off">
@@ -53,11 +60,12 @@ function updateHomeMarkup() {
   refs.libBtnContainer.innerHTML = '';
   refs.libBtnContainer.insertAdjacentHTML('beforeend', markup);
   refs.headerRef.classList.remove('header-library');
+}
+
+function updateHomeMainMarkup() {
   refs.galleryRef.innerHTML = '';
   homePageLoad(page);
   showPaginationHome();
-  const searchForm = document.querySelector('.search-form');
-  searchForm.addEventListener('submit', queryHandler);
 }
 
 export { updateGalleryMarkup, homePageLoad, fetchTrands };
