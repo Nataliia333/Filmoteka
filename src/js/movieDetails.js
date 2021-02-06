@@ -23,35 +23,35 @@ function movieDetailsHandler(event) {
     return;
   }
  
-    } 
-        const movieId = event.target.dataset.id;
-        localStorage.setItem('movieId', movieId);
-        getMovieById(movieId);
+  
+  const movieId = event.target.dataset.id;
+  localStorage.setItem('movieId', movieId);
+  getMovieById(movieId);
         
-        onOpenModal();
-        document.addEventListener('click', (event) => {
-          switch (event.toElement.className) {
-            case 'modal-btns-left': {
-              const id = localStorage.getItem('movieId');
-              console.log('watched fired');
-              saveToWatchedList(id);
-                event.toElement.innerHTML = 'Remove from "WATCHED"';
-              return;
-            }
-            case 'modal-btns-add-to-queue': {
-              const id = localStorage.getItem('movieId');
-              console.log('queue fired');
-              saveToQueueList(id);
-              event.toElement.innerHTML = 'Remove from "QUEUE"';
-              // event.toElement.innerHTML = 'added to watched';
-              return;
-            }
-            default: {
-              console.log('default');
-              return;
-            }
-          }
-        })
+  onOpenModal();
+  document.addEventListener('click', (event) => {
+    switch (event.toElement.className) {
+      case 'modal-btns-left': {
+        const id = localStorage.getItem('movieId');
+        console.log('watched fired');
+        saveToWatchedList(id);
+        event.toElement.innerHTML = 'Remove from "WATCHED"';
+        return;
+      }
+      case 'modal-btns-add-to-queue': {
+        const id = localStorage.getItem('movieId');
+        console.log('queue fired');
+        saveToQueueList(id);
+        event.toElement.innerHTML = 'Remove from "QUEUE"';
+        // event.toElement.innerHTML = 'added to watched';
+        return;
+      }
+      default: {
+        console.log('default');
+        return;
+      }
+    }
+  })
 }
 
 // function checkList() {
