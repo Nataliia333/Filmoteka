@@ -2,6 +2,10 @@ import genres from "./genres";
 import refs from "./refs"
 import {  hidePaginationHome} from "./pagination"
 import { updateGalleryMarkup } from "./homePageRander"
+import {stopToSpin, startToSpin} from  "./spin"
+
+
+
 
 
 
@@ -10,10 +14,11 @@ const page = '1';
 const baseUrl = 'https://api.themoviedb.org/3';
 
 function movieQueryFetch(inputValue, page) {
+  startToSpin();
   return fetch(`${baseUrl}/search/movie?api_key=${apiKey}&query=${inputValue}&page=${page}`)
         .then(response => response.json())
+        .finally(stopToSpin);
     }
-
 refs.formRef.addEventListener("submit", queryHandler);
 
 

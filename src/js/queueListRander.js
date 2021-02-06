@@ -5,6 +5,7 @@ import { normalizeGenres} from "./genres"
 
 
 
+
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
 
@@ -12,7 +13,7 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 const showQueueMarkup = (e) => {
     //   hidePaginationLibrary();
-    if (e.target.textContent !== 'Queue') {
+    if (e.target.textContent !== 'Queue') {      
         return
     }
     else if (localStorage.getItem('queue') === '[]' || localStorage.getItem('queue') === null) {
