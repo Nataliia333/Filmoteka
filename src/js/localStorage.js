@@ -10,7 +10,7 @@ if (i !== -1) {
     return;
 }
 arr.push(newId)
-event.toElement.innerHTML = 'added to queue';
+// event.toElement.innerHTML = 'added to queue';
 localStorage.setItem('queue', JSON.stringify(arr));
 }
 
@@ -27,7 +27,7 @@ if (i !== -1) {
     return;
 }
 arr.push(newId)
-event.toElement.innerHTML = 'added to watched';
+// event.toElement.innerHTML = 'added to watched';
     localStorage.setItem('watched', JSON.stringify(arr));
 
 } 

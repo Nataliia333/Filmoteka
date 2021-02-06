@@ -39,7 +39,7 @@ function homePageLoad(page) {
 
 
 
-refs.homeLink.addEventListener('click', updateHomeMarkup);
+// refs.homeLink.addEventListener('click', updateHomeMarkup);
 
 function updateHomeMarkup() {
   const markup = `

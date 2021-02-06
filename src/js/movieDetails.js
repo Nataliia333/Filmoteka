@@ -33,12 +33,15 @@ function movieDetailsHandler(event) {
               const id = localStorage.getItem('movieId');
               console.log('watched fired');
               saveToWatchedList(id);
+                event.toElement.innerHTML = 'Remove from "WATCHED"';
               return;
             }
             case 'modal-btns-add-to-queue': {
               const id = localStorage.getItem('movieId');
               console.log('queue fired');
               saveToQueueList(id);
+              event.target.innerHTML = 'Remove from "QUEUE"';
+              // event.toElement.innerHTML = 'added to watched';
               return;
             }
             default: {
@@ -49,7 +52,9 @@ function movieDetailsHandler(event) {
         })
 }
 
-
+function checkList() {
+222222
+}
 
 function updateModalMarkup(data) {
   normalizeGenres(data);
