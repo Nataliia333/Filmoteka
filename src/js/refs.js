@@ -20,6 +20,7 @@ const refs = {
   overlay: document.querySelector('.overlay'),
   registrationBtn: document.querySelector('.registration-btn'),
   spinner: document.querySelector('#spinner'),
+  modalHomeLink: document.querySelector('modal-home-link'),
 };
 
 export default refs;

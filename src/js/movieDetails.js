@@ -1,9 +1,9 @@
 import modalTpl from '../templates/modal.hbs';
 import refs from './refs';
 import { saveToWatchedList, saveToQueueList } from './localStorage';
-import {normalizeGenres} from "./genres"
-
-
+import { normalizeGenres } from './genres';
+import { updateHomeMarkup } from './homePageRander';
+import {myLibraryClickHandler} from './myLibrary'
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
@@ -21,12 +21,14 @@ function movieDetailsHandler(event) {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
- const movieId = event.target.dataset.id;
+  const movieId = event.target.dataset.id;
   localStorage.setItem('movieId', movieId);
   getMovieById(movieId);
-        
+
   onOpenModal();
-  document.addEventListener('click', (event) => {
+
+   document.addEventListener('click', event => {       
+     console.log(event.toElement.className);
     switch (event.toElement.className) {
       case 'modal-btns-left': {
         const id = localStorage.getItem('movieId');
@@ -43,12 +45,22 @@ function movieDetailsHandler(event) {
         // event.toElement.innerHTML = 'added to watched';
         return;
       }
+      case 'header-link-nav-modal modal-home-link': {
+        updateHomeMarkup();
+        onCloseModal();
+        break;
+      }
+      case 'header-link-nav-modal modal-library': {
+myLibraryClickHandler();
+onCloseModal();
+break;
+      }
       default: {
         console.log('default');
         return;
       }
     }
-  })
+  });
 }
 
 // function checkList() {
@@ -64,7 +76,7 @@ function updateModalMarkup(data) {
 function onOpenModal() {
   refs.backdropRef.classList.add('is-open');
   window.addEventListener('keydown', onPressESC);
-  refs.homeLinkModal.addEventListener('click');
+  
 }
 
 // function myLibraryModalClickHandler() {
@@ -92,4 +104,6 @@ function cleanModalContent() {
   refs.modalContentRef.innerHTML = '';
 }
 
-export {getMovieById} 
+
+
+export { getMovieById };
