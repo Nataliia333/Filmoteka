@@ -55,6 +55,7 @@ const removeFromQueue = (e) => {
         queueListEmpty();
         return
     }
+    
     refs.galleryRef.innerHTML = ''
 
     filteredId.forEach(el => {

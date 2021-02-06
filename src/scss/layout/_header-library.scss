@@ -9,16 +9,6 @@
   padding: 46px 0px 60px 0px;
 }
 
-.header-library-logo-link {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-
-  img {
-    margin-right: 10px;
-  }
-}
-
 .button-header-library {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
@@ -41,55 +31,6 @@
   margin-top: 49px;
 }
 
-.header-link-navigation {
-  color: $white-color;
-  position: relative;
-  &:hover,
-  &:focus {
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  &::after {
-    position: absolute;
-    display: block;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    margin-top: 4px;
-    content: '';
-    //   transform: scaleX(0);
-  }
-
-  &:hover::after {
-    background-color: $orange-color;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transform: scaleX(1);
-  }
-
-  &:hover::after {
-    background-color: #ff6b08;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transform: scaleX(1);
-  }
-}
-
-.header-link-navigation-home::after {
-  position: absolute;
-  display: block;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  margin-top: 4px;
-  content: '';
-  transform: scaleX(0);
-}
-
-.library-active-page::after {
-  content: '';
-  display: block;
-  height: 4px;
-  background-color: $orange-color;
-}
-
 .button-header-library:hover,
 .button-header-library:focus {
   background-color: $orange-color;
@@ -97,7 +38,11 @@
 }
 
 .button-header-library:checked {
-  background: #ff6b08;
+  background: $orange-color;
+}
+
+.button-header-library.watched {
+  background: $orange-color;
 }
 
 .button-header-library {
@@ -118,11 +63,7 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
-  .header-library-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
   .button-header-library {
     width: 136px;
 

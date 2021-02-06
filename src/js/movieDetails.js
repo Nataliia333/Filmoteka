@@ -1,9 +1,10 @@
 import modalTpl from '../templates/modal.hbs';
 import refs from './refs';
 import { saveToWatchedList, saveToQueueList } from './localStorage';
-import addToQueue from './localStorage';
-import addToWatched from './localStorage';
-import { normalizeGenres } from './genres';
+
+import {normalizeGenres} from "./genres"
+
+
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
@@ -21,32 +22,41 @@ function movieDetailsHandler(event) {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
-  const movieId = event.target.dataset.id;
-  localStorage.setItem('movieId', movieId);
-  getMovieById(movieId);
-
-  onOpenModal();
-  document.addEventListener('click', event => {
-    switch (event.toElement.className) {
-      case 'modal-btns-left': {
-        const id = localStorage.getItem('movieId');
-        console.log('watched fired');
-        saveToWatchedList(id);
-        return;
-      }
-      case 'modal-btns-add-to-queue': {
-        const id = localStorage.getItem('movieId');
-        console.log('queue fired');
-        saveToQueueList(id);
-        return;
-      }
-      default: {
-        console.log('default');
-        return;
-      }
-    }
-  });
+ 
+    } 
+        const movieId = event.target.dataset.id;
+        localStorage.setItem('movieId', movieId);
+        getMovieById(movieId);
+        
+        onOpenModal();
+        document.addEventListener('click', (event) => {
+          switch (event.toElement.className) {
+            case 'modal-btns-left': {
+              const id = localStorage.getItem('movieId');
+              console.log('watched fired');
+              saveToWatchedList(id);
+                event.toElement.innerHTML = 'Remove from "WATCHED"';
+              return;
+            }
+            case 'modal-btns-add-to-queue': {
+              const id = localStorage.getItem('movieId');
+              console.log('queue fired');
+              saveToQueueList(id);
+              event.toElement.innerHTML = 'Remove from "QUEUE"';
+              // event.toElement.innerHTML = 'added to watched';
+              return;
+            }
+            default: {
+              console.log('default');
+              return;
+            }
+          }
+        })
 }
+
+// function checkList() {
+// 222222
+// }
 
 function updateModalMarkup(data) {
   normalizeGenres(data);
