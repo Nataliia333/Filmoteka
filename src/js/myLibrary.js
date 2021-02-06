@@ -30,10 +30,16 @@ function updateLibraryHeaderMarkup() {
     refs.libBtnContainer.innerHTML = "";
     refs.libBtnContainer.insertAdjacentHTML('beforeend', markup);
     refs.headerRef.classList.add("header-library");
-    // refs.headerBtn.classList.remove("header-orange-style");
-    // refs.myLibraryBtn.classList.add("header-orange-style");
+    headerOrangeLineLibrary();
     // hideModal()
 }
+
+function headerOrangeLineLibrary() {
+  refs.homeLink.classList.remove("header-orange-style");
+  refs.myLibraryBtn.classList.add("header-orange-style");
+}
+
+
 
 
 // function hideModal() {

@@ -6,6 +6,7 @@ import { startPaginate, showPaginationHome } from './pagination';
 import { startToSpin, stopToSpin } from './spin';
 import { queryHandler } from './queryRander';>>>>>>> main
 
+
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const page = '1';
 const baseUrl = 'https://api.themoviedb.org/3';
@@ -21,6 +22,7 @@ function updateGalleryMarkup(results, genres) {
 
   const galleryMarkup = galleryTpl(results);
   refs.galleryRef.insertAdjacentHTML('beforeend', galleryMarkup);
+
 }
 
 function homePageLoad(page) {
@@ -63,12 +65,18 @@ function updateHomeHeaderMarkup() {
   refs.libBtnContainer.innerHTML = '';
   refs.libBtnContainer.insertAdjacentHTML('beforeend', markup);
   refs.headerRef.classList.remove('header-library');
+  headerOrangeLineHome();
 }
 
 function updateHomeMainMarkup() {
   refs.galleryRef.innerHTML = '';
   homePageLoad(page);
   showPaginationHome();
+}
+
+function headerOrangeLineHome() {
+  refs.homeLink.classList.add("header-orange-style");
+  refs.myLibraryBtn.classList.remove("header-orange-style");
 }
 
 export { updateGalleryMarkup, homePageLoad, fetchTrands };
