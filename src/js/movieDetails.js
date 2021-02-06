@@ -1,7 +1,10 @@
 import modalTpl from '../templates/modal.hbs';
 import refs from './refs';
+import { normalizeGenres } from './genres';
+import { updateHomeMarkup } from './homePageRander';
+import { myLibraryClickHandler } from './myLibrary';
+import newApp from './authentication';
 import {saveFilmToLocalstorage} from './localStorage';
-import {normalizeGenres} from "./genres"
 import { startToSpin, stopToSpin } from './spin';
 
 
@@ -20,9 +23,11 @@ function movieDetailsHandler(event) {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
- const movieId = event.target.dataset.id;
+  const movieId = event.target.dataset.id;
   localStorage.setItem('movieId', movieId);
-  modalLoad(movieId) 
+  getMovieById(movieId);
+  onOpenModal();
+   modalLoad(movieId) 
   onOpenModal();
   saveFilmToLocalstorage();
   }
@@ -39,6 +44,7 @@ function modalLoad(movieId) {
   startToSpin()
   getMovieById(movieId).then(data => updateModalMarkup(data))
     .catch(error => console.log(error)).finally(stopToSpin())
+
 }
 
 
@@ -63,7 +69,7 @@ function updateModalMarkup(data) {
 function onOpenModal() {
   refs.backdropRef.classList.add('is-open');
   window.addEventListener('keydown', onPressESC);
-  // refs.homeLinkModal.addEventListener('click');
+
 }
 
 
@@ -87,4 +93,4 @@ function cleanModalContent() {
   refs.modalContentRef.innerHTML = '';
 }
 
-export {getMovieById} 
+export { getMovieById };

@@ -43,4 +43,4 @@ function updateLibraryHeaderMarkup() {
 //   refs.backdropRef.classList.remove('is-open');
 // }
 
-// export { updateLibraryGalleryMarkup };
+export { myLibraryClickHandler };

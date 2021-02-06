@@ -4,9 +4,6 @@ import refs from './refs';
 import { genreTransform } from './genres';
 import { startPaginate, showPaginationHome } from './pagination';
 import { startToSpin, stopToSpin } from './spin';
-
-import { queryHandler } from './queryRander'
-
 import { queryHandler } from './queryRander';
 
 
@@ -29,13 +26,15 @@ function updateGalleryMarkup(results, genres) {
 
 function homePageLoad(page) {
 startToSpin();
-  fetchTrands(page)
+fetchTrands(page)
     .then(({ results, total_results }) => {
-    updateGalleryMarkup(results, genres);
+      updateGalleryMarkup(results, genres);
 
-    startPaginate(total_results)
+      startPaginate(total_results);
     })
+
     .finally(stopToSpin());
+
 }
 
 homePageLoad(page);
@@ -73,5 +72,7 @@ function updateHomeMainMarkup() {
   showPaginationHome();
 }
 
-export { updateGalleryMarkup, homePageLoad, fetchTrands };
+// fefs.modalHomeLink.addEventListener('click', updateHomeMarkup);
+
+export { updateGalleryMarkup, homePageLoad, fetchTrands, updateHomeMarkup };
 export default homePageLoad;
