@@ -1,14 +1,9 @@
 
-import genres from "./genres";
-import refs from "./refs"
-import {  hidePaginationHome} from "./pagination"
-import { updateGalleryMarkup } from "./homePageRander"
-import {stopToSpin, startToSpin} from  "./spin"
-
-
-
-
-
+import genres from './genres';
+import refs from './refs';
+import { hidePaginationHome } from './pagination';
+import { updateGalleryMarkup } from './homePageRander';
+import { startToSpin, stopToSpin } from './spin';
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
@@ -32,10 +27,11 @@ function queryHandler(event) {
   const inputValue = form.elements.query.value;
   refs.galleryRef.innerHTML = '';
   form.reset();
+  startToSpin();
   movieQueryFetch(inputValue).then(({ results, total_results }) => {
     updateGalleryMarkup(results, genres);
     showErrorSentence(results);
-  });
+  }).finally(stopToSpin())
 }
 
 function showErrorSentence(results) {

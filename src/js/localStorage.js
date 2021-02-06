@@ -10,7 +10,6 @@ if (i !== -1) {
     return;
 }
 arr.push(newId)
-// event.toElement.innerHTML = 'added to queue';
 localStorage.setItem('queue', JSON.stringify(arr));
 }
 
@@ -27,13 +26,39 @@ if (i !== -1) {
     return;
 }
 arr.push(newId)
-// event.toElement.innerHTML = 'added to watched';
     localStorage.setItem('watched', JSON.stringify(arr));
-
 } 
 
+
+function saveFilmToLocalstorage() {
+   document.addEventListener('click', (event) => {
+    switch (event.target.className) {
+      case 'modal-btns-left': {
+        const id = localStorage.getItem('movieId');
+        console.log('watched fired');
+        // checkFilmList(movieId, 'watched')
+        saveToWatchedList(id);
+            event.target.innerHTML = 'Added to watched';
+            event.target.style.backgroundColor='#ff6b08';
+        break;
+      }
+      case 'modal-btns-add-to-queue': {
+        const id = localStorage.getItem('movieId');
+        console.log('queue fired');
+        saveToQueueList(id);
+            event.target.innerHTML = 'Added to "QUEUE"';
+            event.target.style.backgroundColor='#ff6b08';
+        break;
+      }
+      default: {
+        console.log('default');
+        break;
+      }
+    }
+  })
+}
+
 export {
-    saveToWatchedList,
-    saveToQueueList,
+    saveFilmToLocalstorage,
 }
 

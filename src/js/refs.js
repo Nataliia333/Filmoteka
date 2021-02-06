@@ -19,7 +19,8 @@ const refs = {
   notification: document.querySelector('.notification'),
   overlay: document.querySelector('.overlay'),
   registrationBtn: document.querySelector('.registration-btn'),
-  spinner: document.querySelector('#spinner'),
+spinner: document.querySelector('#spinner'),
+
 };
 
 export default refs;
