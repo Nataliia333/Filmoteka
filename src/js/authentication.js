@@ -31,19 +31,19 @@ function handleRegistrationBtn() {
   refs.createBtn.addEventListener('click', () => {
     newApp
       .createAccount()
-      .then(res => foo())
+      .then(res => handleResponce())
       .catch(error => addCreateNotification());
   });
 
   refs.submitBtn.addEventListener('click', () => {
     newApp
       .signInAccount()
-      .then(res => foo())
+      .then(res => handleResponce())
       .catch(error => addNotification());
   });
 }
 
-function foo() {
+function handleResponce() {
   refs.myLibraryBtn.style = 'pointer-events: auto';
   refs.homeLink.style = 'pointer-events: auto';
   refs.overlay.classList.remove('is-open');

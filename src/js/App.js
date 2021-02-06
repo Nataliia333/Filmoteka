@@ -6,7 +6,6 @@ export default class App {
   }
 
   handleChange = ({ value, id }) => {
-    console.log({ [id]: value });
     this.state[id] = value;
   };
 
