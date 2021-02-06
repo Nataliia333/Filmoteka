@@ -4,7 +4,7 @@ import refs from './refs';
 import { genreTransform } from './genres';
 import { startPaginate, showPaginationHome } from './pagination';
 import { startToSpin, stopToSpin } from './spin';
-import { queryHandler } from './queryRander';
+import { queryHandler } from './queryRander';>>>>>>> main
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const page = '1';
@@ -24,13 +24,16 @@ function updateGalleryMarkup(results, genres) {
 }
 
 function homePageLoad(page) {
-  // startToSpin();
-  fetchTrands(page).then(({ results, total_results }) => {
+
+  startToSpin();
+  fetchTrands(page)
+    .then(({ results, total_results }) => {
     updateGalleryMarkup(results, genres);
 
-    startPaginate(total_results);
-  });
-  // .finally(stopToSpin());
+    startPaginate(total_results)
+    })
+    .finally(stopToSpin);
+
 }
 
 homePageLoad(page);

@@ -1,19 +1,30 @@
-import genres from './genres';
-import refs from './refs';
-import { hidePaginationHome } from './pagination';
-import { updateGalleryMarkup } from './homePageRander';
+
+import genres from "./genres";
+import refs from "./refs"
+import {  hidePaginationHome} from "./pagination"
+import { updateGalleryMarkup } from "./homePageRander"
+import {stopToSpin, startToSpin} from  "./spin"
+
+
+
+
+
+
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const page = '1';
 const baseUrl = 'https://api.themoviedb.org/3';
 
 function movieQueryFetch(inputValue, page) {
-  return fetch(
-    `${baseUrl}/search/movie?api_key=${apiKey}&query=${inputValue}&page=${page}`,
-  ).then(response => response.json());
-}
 
-refs.formRef.addEventListener('submit', queryHandler);
+  startToSpin();
+  return fetch(`${baseUrl}/search/movie?api_key=${apiKey}&query=${inputValue}&page=${page}`)
+        .then(response => response.json())
+        .finally(stopToSpin);
+    }
+
+refs.formRef.addEventListener("submit", queryHandler);
+
 
 function queryHandler(event) {
   event.preventDefault();

@@ -30,12 +30,12 @@ const spinner = new Spinner(opts).spin(target);
 
 
 function startToSpin() {
-  spinner.classList.remove('is-hidden');
+  refs.spinner.classList.remove('is-hidden');
 };
 
 function stopToSpin() {
-  spinner.classList.add('is-hidden');
+  refs.spinner.classList.add('is-hidden');
 };
 
 
-export {startToSpin, stopToSpin}
+export {stopToSpin, startToSpin}
