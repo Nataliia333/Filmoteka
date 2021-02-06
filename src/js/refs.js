@@ -1,4 +1,3 @@
-
 const refs = {
   galleryRef: document.querySelector('.main-section-wrapper'),
   formRef: document.querySelector('.search-form'),
@@ -23,4 +22,3 @@ const refs = {
 };
 
 export default refs;
-
