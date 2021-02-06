@@ -3,13 +3,14 @@ import libraryTpl from '../templates/film-card-library.hbs'
 import { normalizeGenres} from "./genres"
 import { getMovieById } from "./movieDetails"
 
-
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
 
 
 
 const showQueueMarkup = (e) => {
+
+ 
     if (e.target.textContent !== 'QUEUE') {
         return
     }

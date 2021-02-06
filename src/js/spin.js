@@ -38,4 +38,4 @@ function stopToSpin() {
 };
 
 
-export {startToSpin, stopToSpin}
+export {stopToSpin, startToSpin}

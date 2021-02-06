@@ -24,12 +24,14 @@ function updateGalleryMarkup(results, genres) {
 }
 
 function homePageLoad(page) {
-  startToSpin();
-  fetchTrands(page).then(({ results, total_results }) => {
+startToSpin();
+  fetchTrands(page)
+    .then(({ results, total_results }) => {
     updateGalleryMarkup(results, genres);
-startPaginate(total_results);
-  })
-  .finally(stopToSpin());
+
+    startPaginate(total_results)
+    })
+    .finally(stopToSpin);
 }
 
 homePageLoad(page);
