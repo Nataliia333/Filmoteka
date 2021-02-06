@@ -4,7 +4,7 @@
   align-items: center;
   width: 280px;
   padding: 20px;
-  background: #ffffff;
+  background: $white-color;
   input {
     width: 240px;
     height: 40px;
@@ -17,7 +17,7 @@
   margin-bottom: 20px;
   font-weight: 500;
   font-size: 20px;
-  line-height: 23px;
+  line-height: 1.15;
   text-align: center;
 }
 
@@ -29,16 +29,16 @@
     height: 44px;
     font-size: 12px;
     font-weight: 500;
-    line-height: 16px;
+    line-height: 1.33;
     letter-spacing: 0em;
     text-transform: uppercase;
     border-radius: 5px;
     background: none;
-    border: 1px solid #000000;
+    border: 1px solid $black-color;
     &:hover,
     &:focus {
-      background: #ff6b01;
-      color: #ffffff;
+      background: $orange-color;
+      color: $white-color;
       border-width: 0;
       cursor: pointer;
     }
@@ -51,9 +51,9 @@
 .notification {
   font-weight: 500;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 1.33;
   text-align: center;
-  color: #8c8c8c;
+  color: $grey-color;
 }
 
 @media screen and (min-width: 768px) {
@@ -69,7 +69,7 @@
 
   .login-block-title {
     font-size: 24px;
-    line-height: 35px;
+    line-height: 1.46;
   }
 
   .login-btn-block {
@@ -82,6 +82,6 @@
 
   .notification {
     font-size: 16px;
-    line-height: 19px;
+    line-height: 1.19;
   }
 }
