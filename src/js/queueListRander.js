@@ -12,7 +12,7 @@ const baseUrl = 'https://api.themoviedb.org/3';
 
 const showQueueMarkup = (e) => {
     //   hidePaginationLibrary();
-    if (e.target.textContent !== 'Queue') {
+    if (e.target.textContent !== 'QUEUE') {
         return
     }
     else if (localStorage.getItem('queue') === '[]' || localStorage.getItem('queue') === null) {

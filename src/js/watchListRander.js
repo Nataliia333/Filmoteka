@@ -13,13 +13,16 @@ refs.libBtnContainer.addEventListener('click', showWatchedMarkup)
 
 console.log(refs.libBtnContainer)
 
-const showWatchedMarkup = (e) => {
-     if (e.target.textContent !== 'Watched') {
+
+function showWatchedMarkup(event) {
+    console.log(event) 
+   if (event.target.textContent !== 'WATCHED') {
         return
     }
-     console.log(e)
-   openWatchedPage()
+    openWatchedPage()
 }
+
+
 
 const updateWatchedMarkup = (results) => {
     normalizeGenres(results);
