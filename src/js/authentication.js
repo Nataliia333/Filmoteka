@@ -18,31 +18,32 @@ const newApp = new App();
 
 refs.registrationBtn.addEventListener('click', handleRegistrationBtn);
 
-function handleRegistrationBtn() {
-  refs.overlay.classList.add('is-open');
-  window.addEventListener('keydown', onPressESC);
-}
-
 refs.email.addEventListener('change', () => newApp.handleChange(refs.email));
 refs.password.addEventListener('change', () =>
   newApp.handleChange(refs.password),
 );
 
-refs.createBtn.addEventListener('click', () => {
-  newApp
-    .createAccount()
-    .then(res => foo())
-    .catch(error => addCreateNotification());
-});
+function handleRegistrationBtn() {
+  refs.overlay.addEventListener('click', onOverlayClick);
+  refs.overlay.classList.add('is-open');
+  window.addEventListener('keydown', onPressESC);
 
-refs.submitBtn.addEventListener('click', () => {
-  newApp
-    .signInAccount()
-    .then(res => foo())
-    .catch(error => addNotification());
-});
+  refs.createBtn.addEventListener('click', () => {
+    newApp
+      .createAccount()
+      .then(res => handleResponce())
+      .catch(error => addCreateNotification());
+  });
 
-function foo() {
+  refs.submitBtn.addEventListener('click', () => {
+    newApp
+      .signInAccount()
+      .then(res => handleResponce())
+      .catch(error => addNotification());
+  });
+}
+
+function handleResponce() {
   refs.myLibraryBtn.style = 'pointer-events: auto';
   refs.homeLink.style = 'pointer-events: auto';
   refs.overlay.classList.remove('is-open');
@@ -58,13 +59,11 @@ function addNotification() {
   refs.notification.textContent = 'Неверный пароль или адрес электронной почты';
 }
 
-refs.overlay.addEventListener('click', onOverlayClick);
-
 function onCloseModal() {
   window.removeEventListener('keydown', onPressESC);
   refs.overlay.classList.remove('is-open');
-  // cleanModalContent();
 }
+
 function onOverlayClick(event) {
   if (event.target === refs.overlay) onCloseModal();
 }

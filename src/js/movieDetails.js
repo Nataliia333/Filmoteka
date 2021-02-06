@@ -1,76 +1,71 @@
-import modalTpl from "../templates/modal.hbs"
-import refs from "./refs";
+import modalTpl from '../templates/modal.hbs';
+import refs from './refs';
 import { saveToWatchedList, saveToQueueList } from './localStorage';
-import addToQueue from "./localStorage";
-import addToWatched from "./localStorage";
 import {normalizeGenres} from "./genres"
+
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
 
-function getMovieById(movieId){
-    return fetch(`${baseUrl}/movie/${movieId}?api_key=${apiKey}`)
-        .then(response => response.json())
-        .then(data => updateModalMarkup(data))
-        .catch(error => console.log(error));
+function getMovieById(movieId) {
+  return fetch(`${baseUrl}/movie/${movieId}?api_key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => updateModalMarkup(data))
+    .catch(error => console.log(error));
 }
 
-refs.galleryRef.addEventListener("click", movieDetailsHandler);
+refs.galleryRef.addEventListener('click', movieDetailsHandler);
 
 function movieDetailsHandler(event) {
-    if (event.target.nodeName !== "IMG") {
-        return;
-    } 
-        const movieId = event.target.dataset.id;
-        localStorage.setItem('movieId', movieId);
-        getMovieById(movieId);
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+ const movieId = event.target.dataset.id;
+  localStorage.setItem('movieId', movieId);
+  getMovieById(movieId);
         
-        onOpenModal();
-        document.addEventListener('click', (event) => {
-          switch (event.toElement.className) {
-            case 'modal-btns-left': {
-              const id = localStorage.getItem('movieId');
-              console.log('watched fired');
-              saveToWatchedList(id);
-                event.toElement.innerHTML = 'Remove from "WATCHED"';
-              return;
-            }
-            case 'modal-btns-add-to-queue': {
-              const id = localStorage.getItem('movieId');
-              console.log('queue fired');
-              saveToQueueList(id);
-              event.target.innerHTML = 'Remove from "QUEUE"';
-              // event.toElement.innerHTML = 'added to watched';
-              return;
-            }
-            default: {
-              console.log('default');
-              return;
-            }
-          }
-        })
+  onOpenModal();
+  document.addEventListener('click', (event) => {
+    switch (event.toElement.className) {
+      case 'modal-btns-left': {
+        const id = localStorage.getItem('movieId');
+        console.log('watched fired');
+        saveToWatchedList(id);
+        event.toElement.innerHTML = 'Remove from "WATCHED"';
+        return;
+      }
+      case 'modal-btns-add-to-queue': {
+        const id = localStorage.getItem('movieId');
+        console.log('queue fired');
+        saveToQueueList(id);
+        event.toElement.innerHTML = 'Remove from "QUEUE"';
+        // event.toElement.innerHTML = 'added to watched';
+        return;
+      }
+      default: {
+        console.log('default');
+        return;
+      }
+    }
+  })
 }
 
-function checkList() {
-222222
-}
+// function checkList() {
+// 222222
+// }
 
 function updateModalMarkup(data) {
   normalizeGenres(data);
   const modalMarkup = modalTpl(data);
-  refs.modalContentRef.insertAdjacentHTML("beforeend", modalMarkup);
-
+  refs.modalContentRef.insertAdjacentHTML('beforeend', modalMarkup);
 }
-
-
 
 function onOpenModal() {
   refs.backdropRef.classList.add('is-open');
   window.addEventListener('keydown', onPressESC);
-  
+  refs.homeLinkModal.addEventListener('click');
 }
-
 
 // function myLibraryModalClickHandler() {
 //   onCloseModal()
@@ -96,4 +91,5 @@ function onPressESC(event) {
 function cleanModalContent() {
   refs.modalContentRef.innerHTML = '';
 }
- 
+
+export {getMovieById} 
