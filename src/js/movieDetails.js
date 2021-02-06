@@ -1,7 +1,6 @@
 import modalTpl from '../templates/modal.hbs';
 import refs from './refs';
 import { saveToWatchedList, saveToQueueList } from './localStorage';
-
 import {normalizeGenres} from "./genres"
 
 
@@ -22,9 +21,7 @@ function movieDetailsHandler(event) {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
- 
-  
-  const movieId = event.target.dataset.id;
+ const movieId = event.target.dataset.id;
   localStorage.setItem('movieId', movieId);
   getMovieById(movieId);
         
@@ -94,3 +91,5 @@ function onPressESC(event) {
 function cleanModalContent() {
   refs.modalContentRef.innerHTML = '';
 }
+
+export {getMovieById} 
