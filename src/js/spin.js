@@ -23,8 +23,8 @@ let opts = {
   position: 'absolute', // Element positioning
 };
 
-// const target = document.getElementById('spinner');
-const spinner = new Spinner(opts).spin( refs.spinner);
+const target = document.getElementById('spinner');
+const spinner = new Spinner(opts).spin(refs.spinner);
 
   
 
@@ -38,4 +38,4 @@ function stopToSpin() {
 };
 
 
-export {stopToSpin, startToSpin}
+export {startToSpin, stopToSpin}

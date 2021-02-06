@@ -4,9 +4,6 @@ import { updateGalleryMarkup, fetchTrands } from "./homePageRander";
 import genres from "./genres";
 
 
-
-
-
 let targetPage = 1;
 
 
@@ -39,8 +36,6 @@ function startPaginate(totalAmountOfFilms) {
     const home = new Pagination(refs.pageContainerH, options);
     
     }
-
-
 refs.pageContainerH.addEventListener('click', homePaginationHandler);
 
 
@@ -53,27 +48,27 @@ function homePaginationHandler(event) {
             targetPage = Number(targetВtn.textContent);
                console.log(targetPage)
             fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+            break;
          case 'tui-page-btn tui-prev':
             targetPage -=1
               console.log(targetPage)
               fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+            break;
          case 'tui-ico-prev':
             targetPage -=1
               console.log(targetPage)
              fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+            break;
         case 'tui-page-btn tui-next':
             targetPage += 1;
             console.log(targetPage);
             fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+           break;
         case 'tui-ico-next':
              targetPage += 1;
             console.log(targetPage);
             fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+            break;
         case 'tui-page-btn tui-is-selected tui-first-child':
             targetPage = 1;
             fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
@@ -81,30 +76,30 @@ function homePaginationHandler(event) {
          case 'tui-ico-first':
         targetPage = 1;
         fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+            break;
          case 'tui-page-btn tui-first':
         targetPage = 1;
             fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+            break;
          case 'tui-page-btn tui-last':
             targetPage = 1000;
         fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+            break;
            case 'tui-ico-last':
             targetPage = 1000;
             fetchTrands(targetPage).then(({ results}) => updateGalleryMarkup(results, genres));
-           return;
+           break;
 case 'tui-page-btn tui-first-child':
         targetPage = 1;
          fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+            break;
         case 'tui-page-btn tui-last-child':
         targetPage = 1000;
          fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-            return;
+            break;
      default:
          fetchTrands(targetPage).then(({ results }) => updateGalleryMarkup(results, genres));
-        return;
+        break;
     }
 }
 

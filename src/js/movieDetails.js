@@ -48,9 +48,6 @@ function modalLoad(movieId) {
 // }
 
 
-
-
-
 function updateModalMarkup(data) {
   normalizeGenres(data);
   const modalMarkup = modalTpl(data);

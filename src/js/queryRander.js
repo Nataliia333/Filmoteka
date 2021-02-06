@@ -11,11 +11,10 @@ const page = '1';
 const baseUrl = 'https://api.themoviedb.org/3';
 
 function movieQueryFetch(inputValue, page) {
-
-  startToSpin();
+startToSpin();
   return fetch(`${baseUrl}/search/movie?api_key=${apiKey}&query=${inputValue}&page=${page}`)
         .then(response => response.json())
-        .finally(stopToSpin);
+        .finally(stopToSpin());
     }
 
 refs.formRef.addEventListener("submit", queryHandler);

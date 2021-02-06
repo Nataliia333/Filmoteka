@@ -31,7 +31,7 @@ startToSpin();
 
     startPaginate(total_results)
     })
-    .finally(stopToSpin);
+    .finally(stopToSpin());
 }
 
 homePageLoad(page);
