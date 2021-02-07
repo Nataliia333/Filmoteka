@@ -11,16 +11,11 @@ const baseUrl = 'https://api.themoviedb.org/3';
 refs.libBtnContainer.addEventListener('click', showWatchedMarkup)
 refs.galleryRef.addEventListener('click', removeFromWatched)
 
-console.log(refs.libBtnContainer)
-
-
-function showWatchedMarkup(event) {
-    console.log(event) 
+function showWatchedMarkup(event) { 
    if (event.target.textContent !== 'WATCHED') {
         return
     }
     openWatchedPage()
-    removeFromLocalstorage()
     }
 
 
@@ -36,22 +31,16 @@ function removeFromWatched (event) {
     if (event.target.className !== 'remove-from-watched') {
         return
     }
-     console.log(event)
     const itemId = event.target.dataset.id
-    console.log(itemId)
     const savedId = localStorage.getItem('watched')
     const parsedId = JSON.parse(savedId)
-    const filteredId = parsedId.filter(el => el !== itemId)
-
-    localStorage.setItem('watched', JSON.stringify(filteredId))
-
-
-    if (localStorage.getItem('watched') === '[]' || localStorage.getItem('watched') === null) {
-        watchListEmpty()
+    const filteredId = parsedId.filter(el => el !== itemId);
+    localStorage.setItem('watched', JSON.stringify(filteredId));
+if (localStorage.getItem('watched') === '[]' || localStorage.getItem('watched') === null) {
+    watchListEmpty();
         return
     }
     refs.galleryRef.innerHTML = ''
-
     filteredId.forEach(el => {
         fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
             .then(response => response.json())
@@ -59,8 +48,7 @@ function removeFromWatched (event) {
                 updateWatchedMarkup(data)
             })
             .catch(error => console.log(error))
-    }
-    );
+    });
 }
 
 

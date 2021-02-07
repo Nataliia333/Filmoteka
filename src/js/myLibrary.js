@@ -5,7 +5,7 @@ import { openWatchedPage } from './watchListRander';
 
 
 refs.myLibraryBtn.addEventListener("click", myLibraryClickHandler);
-// refs.myLibraryBtnModal.addEventListener("click", myLibraryClickHandler, hideModal);
+
 
 function myLibraryClickHandler(event) {
   hidePaginationHome();
@@ -31,7 +31,7 @@ function updateLibraryHeaderMarkup() {
     refs.libBtnContainer.insertAdjacentHTML('beforeend', markup);
     refs.headerRef.classList.add("header-library");
     headerOrangeLineLibrary();
-    // hideModal()
+    
 }
 
 function headerOrangeLineLibrary() {
@@ -40,13 +40,5 @@ function headerOrangeLineLibrary() {
 }
 
 
-
-
-// function hideModal() {
-//   refs.backdropRef.classList.remove('is-open');
-// }
-// function hideModal() {
-//   refs.backdropRef.classList.remove('is-open');
-// }
 
 export { myLibraryClickHandler };

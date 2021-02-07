@@ -38,30 +38,12 @@ function modalLoad(movieId) {
 
 
 function updateModalMarkup(data) {
-console.log(data)
   normalizeGenres(data);
   const modalMarkup = modalTpl(data);
   refs.modalContentRef.insertAdjacentHTML('beforeend', modalMarkup);
 }
 
-// function updateModalLibraryMarkup(data) {
-//   normalizeGenres(data);
-//   const modalMarkup = modalLibraryTpl(data);
-//   refs.modalContentRef.insertAdjacentHTML('beforeend', modalMarkup);
-// }
 
-// function checkList(movieId) {
-//   const watched = JSON.parse(localStorage.getItem('watched'));
-//   const queue = JSON.parse(localStorage.getItem('queue'));
-//   const arr = [...watched, ...queue];
-//   const findFilm = arr.find(el => el === movieId)
-//   if (findFilm) {
-//     onOpenModal();
-//     startToSpin()
-//     getMovieById(findFilm).then(data => updateModalLibraryMarkup(data))
-//       .catch(error => console.log(error)).finally(stopToSpin())
-//   }else modalLoad(movieId)
-// }
 
 function onOpenModal() {
   refs.backdropRef.classList.add('is-open');

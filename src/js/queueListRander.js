@@ -7,14 +7,14 @@ import { getMovieById } from "./movieDetails"
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
 
-
+refs.libBtnContainer.addEventListener('click', showQueueMarkup)
+refs.galleryRef.addEventListener('click', removeFromQueue)
 
 function showQueueMarkup (event) {
 if (event.target.textContent !== 'QUEUE') {
         return
     }
     openQueuePage()
-    removeFromQueue()
 }
 
 
@@ -31,7 +31,7 @@ function removeFromQueue (event) {
     if (event.target.className !== 'remove-from-queue') {
         return
     }
-    const itemId = event.target.dataset.id
+    const itemId = event.target.dataset.id;
     const savedId = localStorage.getItem('queue')
     const parsedId = JSON.parse(savedId)
     const filteredId = parsedId.filter(el => el !== itemId)
@@ -57,8 +57,6 @@ function removeFromQueue (event) {
     );
 }
 
-refs.libBtnContainer.addEventListener('click', showQueueMarkup)
-refs.galleryRef.addEventListener('click', removeFromQueue)
  
  function queueListEmpty() {
     refs.galleryRef.textContent = "Your queue list is empty!"
