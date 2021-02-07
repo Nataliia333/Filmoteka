@@ -35,9 +35,10 @@ function saveFilmToLocalstorage() {
     switch (event.target.className) {
       case 'modal-btns-left': {
         const id = localStorage.getItem('movieId');
+        console.log(event.target)
         console.log('watched fired');
         saveToWatchedList(id);
-            // event.target.innerHTML = 'Added to watched';
+            event.target.innerHTML = 'Added to watched';
             event.target.style.backgroundColor='#ff6b08';
         break;
       }
@@ -45,7 +46,7 @@ function saveFilmToLocalstorage() {
         const id = localStorage.getItem('movieId');
         console.log('queue fired');
         saveToQueueList(id);
-            // event.target.innerHTML = 'Added to "QUEUE"';
+            event.target.innerHTML = 'Added to "QUEUE"';
             event.target.style.backgroundColor='#ff6b08';
         break;
       }
@@ -57,7 +58,24 @@ function saveFilmToLocalstorage() {
   })
 }
 
+
+
+
+      // case 'modal-btns-add-to-queue': {
+      //   const id = localStorage.getItem('movieId');
+      //   console.log('queue fired');
+      //   saveToQueueList(id);
+      //       event.target.innerHTML = 'Added to "QUEUE"';
+      //       event.target.style.backgroundColor='#ff6b08';
+      //   break;
+      // }
+      // default: {
+      //   console.log('default');
+      //   break;
+      
+    
+  
 export {
-    saveFilmToLocalstorage,
+      saveFilmToLocalstorage,
 }
 
