@@ -1,7 +1,6 @@
 import refs from './refs'
 import libraryTplW from '../templates/film-card-library-watched.hbs'
 import { normalizeGenres } from "./genres"
-import {removeFromLocalstorage} from "./localStorage"
 
 
 
