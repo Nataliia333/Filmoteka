@@ -32,9 +32,10 @@ onOpenModal();
 
 
 function modalLoad(movieId) {
-  startToSpin()
+  startToSpin();
   getMovieById(movieId).then(data => updateModalMarkup(data))
-    .catch(error => console.log(error)).finally(stopToSpin())
+    .catch(error => console.log(error))
+    .finally(stopToSpin)
 }
 
 
@@ -60,7 +61,8 @@ function checkList(movieId) {
     onOpenModal();
     startToSpin()
     getMovieById(findFilm).then(data => updateModalLibraryMarkup(data))
-      .catch(error => console.log(error)).finally(stopToSpin())
+      .catch(error => console.log(error))
+      .finally(stopToSpin)
   }else modalLoad(movieId)
 }
 

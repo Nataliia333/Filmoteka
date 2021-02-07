@@ -3,7 +3,7 @@ import genres from './genres';
 import refs from './refs';
 import { genreTransform } from './genres';
 import { startPaginate, showPaginationHome } from './pagination';
-import { startToSpin, stopToSpin } from './spin';
+import { startToSpin, stopToSpin } from './spin'
 import { queryHandler } from './queryRander'
 
 
@@ -14,6 +14,7 @@ const page = '1';
 const baseUrl = 'https://api.themoviedb.org/3';
 
 function fetchTrands(page) {
+  
   return fetch(
     `${baseUrl}/trending/movie/day?&page=${page}&api_key=${apiKey}`,
   ).then(response => response.json());
@@ -28,15 +29,14 @@ function updateGalleryMarkup(results, genres) {
 }
 
 function homePageLoad(page) {
-startToSpin();
+  startToSpin();
 fetchTrands(page)
     .then(({ results, total_results }) => {
       updateGalleryMarkup(results, genres);
 
       startPaginate(total_results);
     })
-
-    .finally(stopToSpin());
+    .finally(stopToSpin);
 
 }
 

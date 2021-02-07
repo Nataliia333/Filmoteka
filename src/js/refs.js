@@ -20,8 +20,8 @@ homeLink: document.querySelector('.home-link'),
   notification: document.querySelector('.notification'),
   overlay: document.querySelector('.overlay'),
   registrationBtn: document.querySelector('.registration-btn'),
-spinner: document.querySelector('#spinner'),
   modalHomeLink: document.querySelector('modal-home-link'),
+  spinner: document.querySelector('#spinner'),
 
 };
 
