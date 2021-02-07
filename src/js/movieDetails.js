@@ -31,9 +31,10 @@ function movieDetailsHandler(event) {
 
 
 function modalLoad(movieId) {
-  startToSpin()
+  startToSpin();
   getMovieById(movieId).then(data => updateModalMarkup(data))
-    .catch(error => console.log(error)).finally(stopToSpin())
+    .catch(error => console.log(error))
+    .finally(stopToSpin)
 }
 
 

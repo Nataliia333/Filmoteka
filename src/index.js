@@ -8,4 +8,5 @@ import './js/watchListRander';
 import './js/pagination';
 import './js/queueListRander';
 import './js/authentication';
+import './js/spin';
 
