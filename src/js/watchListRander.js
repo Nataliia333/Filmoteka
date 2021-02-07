@@ -20,8 +20,7 @@ function showWatchedMarkup(event) {
         return
     }
     openWatchedPage()
-}
-
+    }
 
 
 const updateWatchedMarkup = (results) => {
@@ -33,10 +32,12 @@ const updateWatchedMarkup = (results) => {
 }
 
 // const removeFromWatched = (e) => {
-//     if (e.target.id !== 'removeButtonWatched') {
+//     if (e.target.id !== 'remove') {
 //         return
 //     }
-//     const itemId = e.target.dataset.refId
+//      console.log(e)
+//     const itemId = e.target.dataset.id
+//     console.log(itemId)
 //     const savedId = localStorage.getItem('watched')
 //     const parsedId = JSON.parse(savedId)
 //     const filteredId = parsedId.filter(el => el !== itemId)
@@ -71,7 +72,6 @@ function watchListEmpty() {
  
 
 function openWatchedPage() {
-    // refs.watchedButton.style.backgroundColor = "#ff6b08";
     if (localStorage.getItem('watched') === '[]' || localStorage.getItem('watched') === null) {
         watchListEmpty()
         return
@@ -87,5 +87,10 @@ function openWatchedPage() {
     });
 }
 
+function loadWatchedModal() {
+    
+}
 
 export { openWatchedPage }
+
+

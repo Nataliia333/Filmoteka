@@ -1,9 +1,8 @@
 import modalTpl from '../templates/modal.hbs';
+import modalLibraryTpl from "../templates/modal-library.hbs"
 import refs from './refs';
 import { normalizeGenres } from './genres';
-import { updateHomeMarkup } from './homePageRander';
-import { myLibraryClickHandler } from './myLibrary';
-import newApp from './authentication';
+// import newApp from './authentication';
 import {saveFilmToLocalstorage} from './localStorage';
 import { startToSpin, stopToSpin } from './spin';
 
@@ -25,46 +24,45 @@ function movieDetailsHandler(event) {
   }
   const movieId = event.target.dataset.id;
   localStorage.setItem('movieId', movieId);
-  getMovieById(movieId);
-  onOpenModal();
-   modalLoad(movieId) 
-  onOpenModal();
+  checkList(movieId)
+onOpenModal();
   saveFilmToLocalstorage();
+
   }
 
-// function checkFilmList(movieId, key) {
-//   const savedFilms = JSON.parse(localStorage.getItem(key));
-//   const findFilm = savedFilms.find(el => el === movieId)
-//   if (findFilm) {
-//     modalLoad(movieId);
-// }else 
-// }
 
 function modalLoad(movieId) {
   startToSpin()
   getMovieById(movieId).then(data => updateModalMarkup(data))
     .catch(error => console.log(error)).finally(stopToSpin())
-
 }
 
 
-// function modalLoad(movieId) {
-//   getMovieById(movieId).then(data => updateModalMarkup(data))
-//     .catch(error => console.log(error));
-// }
-
-
 function updateModalMarkup(data) {
+console.log(data)
   normalizeGenres(data);
   const modalMarkup = modalTpl(data);
   refs.modalContentRef.insertAdjacentHTML('beforeend', modalMarkup);
 }
 
-// function updateModalLibraryMarkup(data) {
-//   normalizeGenres(data);
-//   const modalMarkup = modalTpl(data);
-//   refs.modalContentRef.insertAdjacentHTML('beforeend', modalMarkup);
-// }
+function updateModalLibraryMarkup(data) {
+  normalizeGenres(data);
+  const modalMarkup = modalLibraryTpl(data);
+  refs.modalContentRef.insertAdjacentHTML('beforeend', modalMarkup);
+}
+
+function checkList(movieId) {
+  const watched = JSON.parse(localStorage.getItem('watched'));
+  const queue = JSON.parse(localStorage.getItem('queue'));
+  const arr = [...watched, ...queue];
+  const findFilm = arr.find(el => el === movieId)
+  if (findFilm) {
+    onOpenModal();
+    startToSpin()
+    getMovieById(findFilm).then(data => updateModalLibraryMarkup(data))
+      .catch(error => console.log(error)).finally(stopToSpin())
+  }else modalLoad(movieId)
+}
 
 function onOpenModal() {
   refs.backdropRef.classList.add('is-open');
@@ -91,6 +89,12 @@ function onPressESC(event) {
 
 function cleanModalContent() {
   refs.modalContentRef.innerHTML = '';
+  
 }
 
-export { getMovieById };
+export { getMovieById, onOpenModal, cleanModalContent};
+
+
+
+
+

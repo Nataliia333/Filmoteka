@@ -3,6 +3,9 @@ import libraryTpl from '../templates/film-card-library.hbs'
 import { normalizeGenres} from "./genres"
 import { getMovieById } from "./movieDetails"
 
+refs.libBtnContainer.addEventListener('click', showQueueMarkup)
+// refs.galleryRef.addEventListener('click', removeFromQueue)
+
 const apiKey = '030295876ec9637cb436e167c8c73741';
 const baseUrl = 'https://api.themoviedb.org/3';
 
@@ -67,9 +70,7 @@ const updateQueueMarkup = (results) => {
 //     }
 //     );
 // }
-refs.libBtnContainer.addEventListener('click', showQueueMarkup)
 
-// refs.galleryRef.addEventListener('click', removeFromQueue)
  
  function queueListEmpty() {
     refs.galleryRef.textContent = "Your queue list is empty!"

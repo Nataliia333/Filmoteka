@@ -36,7 +36,6 @@ function saveFilmToLocalstorage() {
       case 'modal-btns-left': {
         const id = localStorage.getItem('movieId');
         console.log('watched fired');
-        // checkFilmList(movieId, 'watched')
         saveToWatchedList(id);
             event.target.innerHTML = 'Added to watched';
             event.target.style.backgroundColor='#ff6b08';

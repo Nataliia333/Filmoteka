@@ -5,17 +5,14 @@ const refs = {
   bodyRef: document.querySelector('body'),
   modalContentRef: document.querySelector('.modal-main'),
   backdropRef: document.querySelector('.backdrop'),
-
-  myLibraryBtn: document.querySelector('.library'),
+myLibraryBtn: document.querySelector('.library'),
 
   headerRef: document.querySelector('.header-home'),
   libBtnContainer: document.querySelector('.header-library-btn-wrapper'),
   libModalBtn: document.querySelector('.library-modal'),
   watchedButton: document.querySelector('.js-watched-button'),
   pageContainerH: document.querySelector('.tui-pagination.home'),
-
-  homeLink: document.querySelector('.home-link'),
-  
+homeLink: document.querySelector('.home-link'),
   submitBtn: document.querySelector('.sign-in-btn'),
   createBtn: document.querySelector('.create-btn'),
   email: document.getElementById('email'),
@@ -23,8 +20,7 @@ const refs = {
   notification: document.querySelector('.notification'),
   overlay: document.querySelector('.overlay'),
   registrationBtn: document.querySelector('.registration-btn'),
-
-  spinner: document.querySelector('#spinner'),
+spinner: document.querySelector('#spinner'),
   modalHomeLink: document.querySelector('modal-home-link'),
 
 };
