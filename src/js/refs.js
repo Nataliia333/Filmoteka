@@ -6,7 +6,6 @@ const refs = {
   modalContentRef: document.querySelector('.modal-main'),
   backdropRef: document.querySelector('.backdrop'),
 myLibraryBtn: document.querySelector('.library'),
-
   headerRef: document.querySelector('.header-home'),
   libBtnContainer: document.querySelector('.header-library-btn-wrapper'),
   libModalBtn: document.querySelector('.library-modal'),

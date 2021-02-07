@@ -1,0 +1,23 @@
+{{#each this}}
+<li class="main-section-card library-section">
+    {{#if poster_path}}
+    <img class="card-top-img" src="https://image.tmdb.org/t/p/original{{poster_path}}" data-id={{id}} alt="{{title}}" />
+    {{else}}
+    <img data-id={{id}} class="movie-img" src="https://dummyimage.com/400x600/cfcfcf/ffffff&text=NO+IMAGE+AVAILABLE"
+        alt="{{title}}" />
+    {{/if}}
+    <div class="card-body">
+        <h3 class="card-title">{{title}}</h3>
+        {{#if genres}}
+        <p class="card-genre">{{genres}} | <span class="vote-card">{{vote_average}}</span></p>
+
+        {{else}}
+        <p class="card-genre">{{release_date}} <span class="vote-card">{{vote_average}}</span></p>
+        </p>
+        {{/if}}
+    </div>
+    <div class="modal-btns queue">
+        <button class="remove-from-queue" data-id="{{id}}">Remove</button>
+    </div>
+</li>
+{{/each}}
