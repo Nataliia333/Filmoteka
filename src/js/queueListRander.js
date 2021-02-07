@@ -1,5 +1,5 @@
 import refs from './refs'
-import libraryTpl from '../templates/film-card-library.hbs'
+import libraryTplQ from '../templates/film-card-library-queue.hbs'
 import { normalizeGenres} from "./genres"
 import { getMovieById } from "./movieDetails"
 
@@ -26,13 +26,13 @@ const showQueueMarkup = (e) => {
         fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
             .then(response => response.json())
             .then(data => updateQueueMarkup(data))
-            .catch(error => console.log(error));
-    });
-    
+            .catch(error => console.log(error))
+    })
+   
 }
 const updateQueueMarkup = (results) => {
     normalizeGenres(results);
-    const markup = libraryTpl({results})
+    const markup = libraryTplQ({results})
     refs.galleryRef.insertAdjacentHTML('beforeend', markup)
   
 }
@@ -74,4 +74,5 @@ refs.libBtnContainer.addEventListener('click', showQueueMarkup)
  function queueListEmpty() {
     refs.galleryRef.textContent = "Your queue list is empty!"
     refs.galleryRef.classList.add('empty-list')
- }
+}
+ 

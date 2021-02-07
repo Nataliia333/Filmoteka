@@ -37,7 +37,7 @@ function saveFilmToLocalstorage() {
         const id = localStorage.getItem('movieId');
         console.log('watched fired');
         saveToWatchedList(id);
-            event.target.innerHTML = 'Added to watched';
+            // event.target.innerHTML = 'Added to watched';
             event.target.style.backgroundColor='#ff6b08';
         break;
       }
@@ -45,7 +45,7 @@ function saveFilmToLocalstorage() {
         const id = localStorage.getItem('movieId');
         console.log('queue fired');
         saveToQueueList(id);
-            event.target.innerHTML = 'Added to "QUEUE"';
+            // event.target.innerHTML = 'Added to "QUEUE"';
             event.target.style.backgroundColor='#ff6b08';
         break;
       }

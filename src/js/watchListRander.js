@@ -1,5 +1,5 @@
 import refs from './refs'
-import libraryTpl from '../templates/film-card-library.hbs'
+import libraryTplW from '../templates/film-card-library-watched.hbs'
 import { normalizeGenres} from "./genres"
 
 
@@ -25,7 +25,7 @@ function showWatchedMarkup(event) {
 
 const updateWatchedMarkup = (results) => {
     normalizeGenres(results);
-    const markup = libraryTpl({results})
+    const markup = libraryTplW({results})
     refs.galleryRef.insertAdjacentHTML('beforeend', markup)
   
     
@@ -87,9 +87,9 @@ function openWatchedPage() {
     });
 }
 
-function loadWatchedModal() {
+// function loadWatchedModal() {
     
-}
+// }
 
 export { openWatchedPage }
 
