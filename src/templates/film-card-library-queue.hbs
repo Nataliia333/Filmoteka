@@ -10,13 +10,11 @@
         <h3 class="card-title">{{title}}</h3>
         {{#if genres}}
         <p class="card-genre">{{genres}} | <span class="vote-card">{{vote_average}}</span></p>
-
         {{else}}
         <p class="card-genre">{{release_date}} <span class="vote-card">{{vote_average}}</span></p>
-        </p>
         {{/if}}
     </div>
-    <div class="modal-btns queue">
+    <div class="modal-btns">
         <button class="remove-from-queue" data-id="{{id}}">Remove</button>
     </div>
 </li>

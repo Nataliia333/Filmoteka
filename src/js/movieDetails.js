@@ -4,16 +4,8 @@ import { normalizeGenres } from './genres';
 // import newApp from './authentication';
 import {saveFilmToLocalstorage} from './localStorage';
 import { startToSpin, stopToSpin } from './spin';
+import {getMovieById} from './apiSevice'
 
-
-const apiKey = '030295876ec9637cb436e167c8c73741';
-const baseUrl = 'https://api.themoviedb.org/3';
-
-function getMovieById(movieId) {
-  return fetch(`${baseUrl}/movie/${movieId}?api_key=${apiKey}`)
-    .then(response => response.json())
-  
-}
 
 refs.galleryRef.addEventListener('click', movieDetailsHandler);
 

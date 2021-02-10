@@ -8,8 +8,8 @@ const refs = {
 myLibraryBtn: document.querySelector('.library'),
   headerRef: document.querySelector('.header-home'),
   libBtnContainer: document.querySelector('.header-library-btn-wrapper'),
-  libModalBtn: document.querySelector('.library-modal'),
-  watchedButton: document.querySelector('.js-watched-button'),
+  // libModalBtn: document.querySelector('.library-modal'),
+  // watchedButton: document.querySelector('.js-watched-button'),
   pageContainerH: document.querySelector('.tui-pagination.home'),
 homeLink: document.querySelector('.home-link'),
   submitBtn: document.querySelector('.sign-in-btn'),
@@ -21,6 +21,7 @@ homeLink: document.querySelector('.home-link'),
   registrationBtn: document.querySelector('.registration-btn'),
   modalHomeLink: document.querySelector('modal-home-link'),
   spinner: document.querySelector('#spinner'),
+  
 
 };
 

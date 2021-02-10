@@ -1,7 +1,7 @@
 import refs from './refs'
 import libraryTplQ from '../templates/film-card-library-queue.hbs'
 import { normalizeGenres} from "./genres"
-import { getMovieById } from "./movieDetails"
+import {getMovieById} from './apiSevice'
 
 
 const apiKey = '030295876ec9637cb436e167c8c73741';
