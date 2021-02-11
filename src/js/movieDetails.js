@@ -2,7 +2,7 @@ import modalTpl from '../templates/modal.hbs';
 import refs from './refs';
 import { normalizeGenres } from './genres';
 // import newApp from './authentication';
-import {saveFilmToLocalstorage} from './localStorage';
+import { modalBtnHandler} from './localStorage';
 import { startToSpin, stopToSpin } from './spin';
 import {getMovieById} from './apiSevice'
 
@@ -17,15 +17,16 @@ function movieDetailsHandler(event) {
   localStorage.setItem('movieId', movieId);
    modalLoad(movieId)
   onOpenModal();
-  saveFilmToLocalstorage();
-
   }
 
 
 function modalLoad(movieId) {
   startToSpin();
-  getMovieById(movieId).then(data => updateModalMarkup(data))
-    .catch(error => console.log(error))
+  getMovieById(movieId).then(data => {
+    updateModalMarkup(data);
+    modalBtnHandler(movieId)
+  })
+   
     .finally(stopToSpin)
 }
 
@@ -67,6 +68,5 @@ function cleanModalContent() {
 }
 
 export { getMovieById, onOpenModal, cleanModalContent};
-
 
 

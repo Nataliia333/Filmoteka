@@ -4,16 +4,10 @@ import { normalizeGenres} from "./genres"
 import {getMovieById} from './apiSevice'
 
 
-const apiKey = '030295876ec9637cb436e167c8c73741';
-const baseUrl = 'https://api.themoviedb.org/3';
-
-refs.libBtnContainer.addEventListener('click', showQueueMarkup)
+// refs.libBtnContainer.addEventListener('click', showQueueMarkup)
 refs.galleryRef.addEventListener('click', removeFromQueue)
 
-function showQueueMarkup (event) {
-if (event.target.textContent !== 'QUEUE') {
-        return
-    }
+function queueClickHandler (event) {
     openQueuePage()
 }
 
@@ -47,8 +41,7 @@ function removeFromQueue (event) {
     refs.galleryRef.innerHTML = ''
 
     filteredId.forEach(el => {
-        fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
-            .then(response => response.json())
+       getMovieById(el)
             .then(data => {
                 updateQueueMarkup(data)
             })
@@ -74,9 +67,10 @@ function openQueuePage() {
     const savedId = localStorage.getItem('queue');
     const parsedId = JSON.parse(savedId)
     parsedId.forEach(el => {
-        fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
-            .then(response => response.json())
+       getMovieById(el)
             .then(data => updateQueueMarkup(data))
             .catch(error => console.log(error))
     })
 }
+
+export {openQueuePage, queueClickHandler}

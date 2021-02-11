@@ -1,60 +1,57 @@
-function saveToQueueList(id){
+
+
+function saveToLocalStorageList(id, list){
 let newId = id;
-if (localStorage.getItem('queue') === null){
-    localStorage.setItem('queue', '[]');
+if (localStorage.getItem(list) === null){
+    localStorage.setItem(list, '[]');
 }
-const arr = JSON.parse(localStorage.getItem('queue'));
+const arr = JSON.parse(localStorage.getItem(list));
 const i = arr.indexOf(newId);
 if (i !== -1) {
     return;
 }
 arr.push(newId)
-localStorage.setItem('queue', JSON.stringify(arr));
+localStorage.setItem(list, JSON.stringify(arr));
 }
 
 
-function saveToWatchedList(id) {
-   let newId = id;
-if (localStorage.getItem('watched') === null){
-  localStorage.setItem('watched', '[]');
-}
-const arr = JSON.parse(localStorage.getItem('watched'));
-const i = arr.indexOf(newId);
-if (i !== -1) {
-    return;
-}
-arr.push(newId)
-    localStorage.setItem('watched', JSON.stringify(arr));
-} 
 
-
-function saveFilmToLocalstorage() {
-   document.addEventListener('click', (event) => {
-    switch (event.target.className) {
-      case 'modal-btns-left': {
+function modalBtnHandler(movieId) {
+  const btnWatched = document.querySelector(".modal-btns-add-to-watched");
+  const btnQueue = document.querySelector(".modal-btns-add-to-queue");
+  checkList(movieId, "watched", btnWatched, btnQueue);
+  checkList(movieId, "queue", btnQueue, btnWatched);
+  btnWatched.addEventListener('click', modalWatchedHandler);
+  btnQueue.addEventListener('click', modalQueueHandler);
+  function modalWatchedHandler(event) {
+  console.log(event)
         const id = localStorage.getItem('movieId');
-        saveToWatchedList(id);
+        saveToLocalStorageList(id, 'watched');
             event.target.innerHTML = 'Added to watched';
             event.target.style.backgroundColor='#ff6b08';
-        break;
-      }
-      case 'modal-btns-add-to-queue': {
+  btnQueue.setAttribute("disabled", "disabled");
+  }
+  function modalQueueHandler(event) {
+  console.log(event)
         const id = localStorage.getItem('movieId');
-        saveToQueueList(id);
+         saveToLocalStorageList(id, 'queue');
             event.target.innerHTML = 'Added to "QUEUE"';
             event.target.style.backgroundColor='#ff6b08';
-        break;
-      }
-      default: {
-        console.log('default');
-        break;
-      }
-    }
-  })
+  btnWatched.setAttribute("disabled", "disabled");
+  }
+  function checkList(movieId, list, btnLink, btnDisable) {
+  const filmList = JSON.parse(localStorage.getItem(list));
+  const findMovie = filmList.find(el => el === movieId);
+  if (findMovie) {
+    btnLink.textContent = `In ${list} list`;
+    btnLink.style.backgroundColor = '#ff6b08';
+    btnLink.style.color = '#ffffff';
+    btnLink.setAttribute("disabled", "disabled");
+    btnDisable.setAttribute("disabled", "disabled");
+  }
 }
-  
-  
-export {
-      saveFilmToLocalstorage,
 }
+
+
+export { modalBtnHandler}
 

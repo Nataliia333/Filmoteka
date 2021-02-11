@@ -4,18 +4,10 @@ import { normalizeGenres } from "./genres"
 import {getMovieById} from './apiSevice'
 
 
-
-
-const apiKey = '030295876ec9637cb436e167c8c73741';
-const baseUrl = 'https://api.themoviedb.org/3';
-
-refs.libBtnContainer.addEventListener('click', showWatchedMarkup)
+// refs.libBtnContainer.addEventListener('click', showWatchedMarkup)
 refs.galleryRef.addEventListener('click', removeFromWatched)
 
-function showWatchedMarkup(event) { 
-   if (event.target.textContent !== 'WATCHED') {
-        return
-    }
+function watchedClickHandler(event) {
     openWatchedPage()
     }
 
@@ -43,8 +35,7 @@ if (localStorage.getItem('watched') === '[]' || localStorage.getItem('watched') 
     }
     refs.galleryRef.innerHTML = ''
     filteredId.forEach(el => {
-        fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
-            .then(response => response.json())
+       getMovieById(el)
             .then(data => {
                 updateWatchedMarkup(data)
             })
@@ -68,14 +59,13 @@ function openWatchedPage() {
     const savedId = localStorage.getItem('watched');
     const parsedId = JSON.parse(savedId);
     parsedId.forEach(el => {
-        fetch(`${baseUrl}/movie/${el}?api_key=${apiKey}`)
-            .then(response => response.json())
+       getMovieById(el)
             .then(data => updateWatchedMarkup(data))
     });
 }
 
 
 
-export { openWatchedPage }
+export { openWatchedPage, watchedClickHandler}
 
 
